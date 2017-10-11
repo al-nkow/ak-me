@@ -1,5 +1,4 @@
 *.txt
-*.md
 *.zip
 node_modules/
 bower_components/
