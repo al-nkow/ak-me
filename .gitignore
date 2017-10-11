@@ -1,0 +1,8 @@
+*.txt
+*.md
+*.zip
+node_modules/
+bower_components/
+dist/
+.DS_Store
+.idea
