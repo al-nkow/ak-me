@@ -53,6 +53,15 @@ function myroute($stateProvider, $urlRouterProvider, $locationProvider) {
                 }
             }   
         })
+        .state('root.portfolio.fitness', {
+            url: '/fitness',
+            views: {
+                'content@': {
+                    templateUrl: 'templates/fitness/fitness.html',
+                    controller: 'FitnessCtrl as vc'
+                }
+            }
+        })
         .state('root.contacts', {
             url: 'contacts',
             views: {
