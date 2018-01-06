@@ -1,46 +1,49 @@
 .bg-blur
-	.state-wrap
+    .state-wrap
 
-		div.work__header
-			
-			div(layout="row")
+        div(ng-if="vc.showbut")
+            span.arr-down(icon-down)
 
-				div(flex="55")
-					.page-name.page-name_nom Sota
+        div.work__header
 
-					a.project-link.project-link_dist(href="http://sotasystem.ru/" target="_blank") www.sotasystem.ru
+            div(layout="row")
 
-					.text-block.text-block_right.text-block_bottom
-						.text-block__desc SOTA system is a unified information-analytical design system that combines all the fragmented analytics and project documentation in a simple and clear display that is available from any device anywhere in the world. It also represents a single point of storage and display of documents on the project analytics through integration with accounting mechanisms, estimated and design programs.
+                div(flex="55")
+                    .page-name.page-name_nom Sota
 
-					.text-block.text-block_right.text-block_bottom
-						.text-block__title Role
-						.text-block__desc Frontend developer
+                    a.project-link.project-link_dist(href="http://sotasystem.ru/" target="_blank") www.sotasystem.ru
 
-					.text-block.text-block_right.text-block_last
-						.text-block__title Technologies
-						.text-block__desc
-							div AngularJS / Coffeescript / Jade / Stylus / Gulp
-							div NodeJS / SailsJS / SQL / Grunt / PostgreSQL / UnitTest
+                    .text-block.text-block_right.text-block_bottom
+                        .text-block__desc SOTA system is a unified information-analytical design system that combines all the fragmented analytics and project documentation in a simple and clear display that is available from any device anywhere in the world. It also represents a single point of storage and display of documents on the project analytics through integration with accounting mechanisms, estimated and design programs.
 
-				div(flex="45")
-					.work__header__image
-						img(src="/images/sota_imac.png" alt="")
+                    .text-block.text-block_right.text-block_bottom
+                        .text-block__title Role
+                        .text-block__desc Frontend developer
 
-			.devices
-				.devices__item.devices__item_macbook
-					img(src="/images/sota_macbook.png" alt="")
-				.devices__item.devices__item_ipad
-					img(src="/images/sota_ipad.png" alt="")
-				.devices__item.devices__item_iphone
-					img(src="/images/sota_iphone.png" alt="")
+                    .text-block.text-block_right.text-block_last
+                        .text-block__title Technologies
+                        .text-block__desc
+                            div AngularJS / Coffeescript / Jade / Stylus / Gulp
+                            div NodeJS / SailsJS / SQL / Grunt / PostgreSQL / UnitTest
 
-		div.screens-wrap
-			div.screens.clearfix
-				div.screens__item(
-					ng-repeat="item in vc.screens track by $index"
-					ng-click="vc.showScreen($event, $index)"
-					)
-					img.screens__item__img.md-whiteframe-3dp(ng-src="{{ item }}")
+                div(flex="45")
+                    .work__header__image
+                        img(src="/images/sota_imac.png" alt="")
 
-		scroll-top
+            .devices
+                .devices__item.devices__item_macbook
+                    img(src="/images/sota_macbook.png" alt="")
+                .devices__item.devices__item_ipad
+                    img(src="/images/sota_ipad.png" alt="")
+                .devices__item.devices__item_iphone
+                    img(src="/images/sota_iphone.png" alt="")
+
+        div.screens-wrap
+            div.screens.clearfix
+                div.screens__item(
+                ng-repeat="item in vc.screens track by $index"
+                ng-click="vc.showScreen($event, $index)"
+                )
+                    img.screens__item__img.md-whiteframe-3dp(ng-src="{{ item }}")
+
+        scroll-top

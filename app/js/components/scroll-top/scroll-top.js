@@ -19,7 +19,6 @@
 
 		this.scrollToTop = function() {
 			// wrap[0].scrollTop = 0;
-
 			// requestAnimationFrame polyfill by Erik Möller. fixes from Paul Irish and Tino Zijdel
 			var lastTime = 0;
 			var vendors = ['ms', 'moz', 'webkit', 'o'];

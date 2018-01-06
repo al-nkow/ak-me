@@ -17,9 +17,8 @@
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 </head>
-<body ng-controller="AppController as app">
+<body ng-controller="AppController as app" ng-show="show">
 
-	
 	<div ng-include="'templates/menu/menu.html'" ng-controller="MenuCtrl as mc"></div>
 	
 	<div class="main-wrap" ng-class="{'main-wrap_root': app.$rootScope.stateName == 'root', 'main-wrap_contacts': app.$rootScope.stateName == 'root.contacts'}">

@@ -43,4 +43,4 @@
 									div(ng-message="required") This is required!
 									div(ng-message="md-maxlength") The message must be less than 500 characters long!
 					div(layout="row")
-						md-button.md-raised.md-primary(type="submit" ng-if="mailForm.$valid") Send
+						md-button.md-raised.md-primary(type="submit" ng-disabled="!mailForm.$valid") Send

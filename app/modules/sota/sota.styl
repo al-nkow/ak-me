@@ -1,27 +1,46 @@
 @import '../../styles/config.styl'
 
 .work__header
-	margin-bottom 40px
-	&__image
-		padding-top 20px
-		img
-			width 80%
-			
+    margin-bottom 40px
+    &__image
+        padding-top 20px
+        img
+            width 80%
+
 .screens-wrap
-	box-sizing border-box
-	// overflow hidden
-			
+    box-sizing border-box
+    // overflow hidden
+
 .screens
-	margin-left -20px
-	margin-right -20px
-	&__item
-		box-sizing border-box
-		padding 20px
-		// border 1px solid red
-		width 50%
-		float left
-		&__img
-			width 100%
-			border-radius 2px
-			&:hover
-				cursor pointer
+    margin-left -20px
+    margin-right -20px
+    &__item
+        box-sizing border-box
+        padding 20px
+        // border 1px solid red
+        width 50%
+        float left
+        &__img
+            width 100%
+            border-radius 2px
+            &:hover
+                cursor pointer
+
+@keyframes movedown
+    0%
+        bottom 100px
+    93%
+        bottom 30px
+    100%
+        bottom 100px
+
+.arr-down
+    position: fixed;
+    bottom: 30px;
+    right: 50px;
+    opacity: .3;
+    transition: all .2s ease-in-out;
+    width: 40px;
+    height: 40px;
+    fill: #fff;
+    animation: movedown 2s infinite;

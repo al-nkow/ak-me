@@ -1,7 +1,22 @@
 angular.module('myApp.portfolio').controller('SotaCtrl', SotaCtrlFunc);
-function SotaCtrlFunc($scope, $mdDialog) {
+function SotaCtrlFunc($mdDialog, $timeout) {
 
 	var self = this;
+    var wrap = angular.element(document.querySelector('#maincontent'));
+
+	this.showbut = false;
+	this.top = 0;
+    this.$timeout = $timeout;
+
+    this.init = function() {
+        this.$timeout(function() {
+            if (self.top === 0) self.showbut = true;
+        }, 2000)
+        wrap.bind('scroll', function() {
+            self.top = wrap[0].scrollTop; // величина прокрутки
+            self.showbut = self.top === 0 ? true : false;
+        });
+    }
 
 	this.screens = [
 		'/images/sota/sota0.jpg',
@@ -46,7 +61,7 @@ function SotaCtrlFunc($scope, $mdDialog) {
 		'/images/sota/sota42.jpg',
 		'/images/sota/sota43.jpg',
 		'/images/sota/sota44.jpg'
-	]
+	];
 
 	this.showScreen = function(ev, index) {
 		ev.stopPropagation();
@@ -68,7 +83,8 @@ function SotaCtrlFunc($scope, $mdDialog) {
 		}, function() {
 			// $scope.status = 'You cancelled the dialog.';
 		});
-
 	}
+
+    this.init();
 
 };
