@@ -1,6 +1,6 @@
 .bg-blur
     .state-wrap
-
+        span.back-but(icon-down ui-sref="root.portfolio")
         div(ng-if="vc.showbut")
             span.arr-down(icon-down)
 
@@ -19,7 +19,7 @@
 
                     .text-block.text-block_right.text-block_bottom
                         .text-block__title Role
-                        .text-block__desc Web developer
+                        .text-block__desc Web developer / designer
 
                     .text-block.text-block_right.text-block_last
                         .text-block__title Technologies
@@ -48,8 +48,9 @@
                 .devices__item.devices__item_iphone
                     img(src="/images/fitness_iphone.png" alt="")
 
-        //div.screens-wrap
-            div.screens.clearfix
+        div.screens-wrap
+            img.large-img.md-whiteframe-3dp(ng-repeat="item in vc.screens track by $index" ng-src="{{ item }}")
+            //div.screens.clearfix
                 div.screens__item(
                 ng-repeat="item in vc.screens track by $index"
                 ng-click="vc.showScreen($event, $index)"
