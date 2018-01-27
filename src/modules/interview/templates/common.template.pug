@@ -1,0 +1,35 @@
+div(style="overflow: auto; width: 100%;")
+    int-head(candidate="vc.candidate" user="vc.currentUser" toggle="vc.edit" card="vc.card" users="vc.users")
+
+    .int-tabs
+        dev-tabs(candidate="vc.candidate")
+
+    int-row-head(title="'Core'" type="'mark'")
+    int-row-mark(title="'OOP'" model="vc.card.objectOrientedProgramming" toggle="vc.edit")
+    int-row-mark(title="'OOD'" model="vc.card.objectOrientedDesign" toggle="vc.edit")
+    int-row-mark(title="'Design Patterns'" model="vc.card.designPatterns" toggle="vc.edit" )
+
+    int-row-mark(title="'Architectural Patterns'" model="vc.card.archPatterns" toggle="vc.edit")
+    int-row-mark(title="'TDD'" model="vc.card.testDrivenDesign" toggle="vc.edit")
+    int-row-mark(title="'Code Quality'" model="vc.card.codeQuality" toggle="vc.edit")
+    int-row-mark(title="'Refactoring'" model="vc.card.refactoring" toggle="vc.edit")
+
+    int-row-head(title="'Methodologies'" type="'mark'")
+    int-row-mark(title="'Agile'" model="vc.card.agile" toggle="vc.edit")
+    int-row-mark(title="'Scrum'" model="vc.card.scrum" toggle="vc.edit")
+    int-row-mark(title="'Waterfall'" model="vc.card.waterfall" toggle="vc.edit")
+    int-row-mark(title="'Requirements Management'" model="vc.card.requirementManagement" toggle="vc.edit")
+    int-row-mark(title="'Release Management'" model="vc.card.releaseManagement" toggle="vc.edit")
+    int-row-mark(title="'Task Tracking / Estimation'" model="vc.card.taskTrackingEstimation" toggle="vc.edit")
+    int-row-mark(title="'JIRA / Redmine'" model="vc.card.jiraRedmine" toggle="vc.edit")
+
+    int-row-head(title="'Source Control'" type="'mark'")
+    int-row-mark(title="'Git'" model="vc.card.git" toggle="vc.edit")
+    int-row-mark(title="'SVN'" model="vc.card.svn" toggle="vc.edit")
+    int-row-mark(title="'Mercurial'" model="vc.card.mercurial" toggle="vc.edit")
+    int-row-mark(title="'Gerrit'" model="vc.card.gerrit" toggle="vc.edit")
+    int-row-mark(title="'Github'" model="vc.card.github" toggle="vc.edit")
+    int-row-mark(title="'Stash / Bitbucket'" model="vc.card.stashBitbucket" toggle="vc.edit")
+
+    .f-buttons-wrap(layout="row" layout-align="end center")
+        button.btn.btn-primary.m-btn(ng-if="vc.edit" ng-click="vc.saveCard();") SAVE

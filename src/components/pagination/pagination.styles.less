@@ -1,0 +1,43 @@
+.pagination {
+    margin: 0 auto;
+    text-align: center;
+    width: auto;
+
+    &__item {
+        display: inline-block;
+        color: #999;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 3px 1px 6px 1px;
+        position: relative;
+
+        &::before {
+            content: ' ';
+            display: block;
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            border-radius: 10px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: transparent;
+        }
+
+        & + & {
+            margin-left: 14px;
+        }
+
+        &._active {
+            color: #2cabe1;
+
+            &::before {
+                background-color: #2cabe1;
+            }
+        }
+    }
+
+    &__total {
+        display: none;
+    }
+}

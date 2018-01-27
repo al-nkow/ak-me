@@ -1,0 +1,21 @@
+md-select.bk-select.transparent(
+    ng-disabled="vc.user.role === 'guest'"
+    ng-change="vc.onChange()"
+    ng-model="vc.model"
+    placeholder="N/A"
+    ng-class="{ 'hide-arr': vc.hideArr }"
+    )
+    md-option(
+        ng-value="item.priority"
+        ng-repeat="item in vc.levels"
+        )
+        div
+            span.opt-icon(
+                icon-eng-flag
+                ng-class="{\
+                    'level-fluent': item.priority === 1,\
+                    'level-intermediate': item.priority === 2,\
+                    'level-low': item.priority === 3\
+                }"
+                )
+            span {{ item.title }}

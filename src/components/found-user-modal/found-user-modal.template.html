@@ -1,0 +1,33 @@
+<md-dialog aria-label="Info">
+
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Information</h2>
+            <span flex></span>
+            <icon-close class="m-close" ng-click="vc.cancel()"></icon-close>
+            <!--<md-button class="md-icon-button" ng-click="vc.cancel()">-->
+            <!--<icon-close></icon-close>-->
+            <!--</md-button>-->
+        </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+        <div class="md-dialog-content">
+            <p class="p-modal">
+                Сandidate whom you are trying to save already exists in the database.<br/>
+                Last update: {{ vc.resume.updated_at | date:'MM.dd.yyyy h:mma' }}
+            </p>
+            <p class="p-modal">You can update user information by clicking the "Update" button.</p>
+        </div>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+        <md-button ng-click="vc.cancel()">
+            Cancel
+        </md-button>
+        <md-button ng-click="vc.confirm()">
+            Update
+        </md-button>
+    </md-dialog-actions>
+
+</md-dialog>

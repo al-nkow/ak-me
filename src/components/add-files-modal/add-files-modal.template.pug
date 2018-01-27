@@ -1,0 +1,47 @@
+md-dialog(aria-label="Info")
+
+    md-toolbar
+        .md-toolbar-tools
+            h2 Upload files
+            span(flex)
+            icon-close.m-close(ng-click="vc.cancel()")
+
+    md-dialog-content
+        .md-dialog-content.password-dialog
+            .lform-row(layout="row")
+                div(flex="100")
+                    .flex-in Upload files (supported types: DOC / DOCX / PPT / PPTX / PDF / XLS / XLSX )
+                    .flex-in
+                        .lie-file-inp(
+                        type="file"
+                        ngf-select="vc.addFiles($files, $invalidFiles)"
+                        ngf-pattern="'.doc,.docx,.ppt,.pptx,.pdf,.xls,.xlsx'"
+                        ngf-accept="'.doc,.docx,.ppt,.pptx,.pdf,.xls,.xlsx'"
+                        multiple
+                        )
+                            span(ng-if="!vc.files") Select files
+                            span(
+                            ng-if="vc.files && vc.files.length"
+                            ng-repeat="item in vc.files"
+                            )
+                                span {{ item.name }}
+                                span(ng-if="!$last") ,&ensp;
+                            span(
+                            ng-if="vc.invalidFiles && vc.invalidFiles.length"
+                            ng-repeat="item in vc.invalidFiles"
+                            class="l-req"
+                            )
+                                span {{ item.name }}
+                                span(ng-if="!$last") ,&ensp;
+                            .lie-file-inp__del(
+                            ng-if="vc.files"
+                            ng-click="$event.stopPropagation(); vc.files = null; vc.invalidFiles = null"
+                            icon-close
+                            )
+                    .flex-in(
+                    ng-show="vc.invalidFiles.length"
+                    class="l-req"
+                    ) Please select files of supported type
+    md-dialog-actions(layout="row")
+        md-button(ng-click="vc.cancel()") Cancel
+        md-button(ng-click="vc.confirm()" ng-disabled="!vc.files || vc.invalidFiles.length") Upload

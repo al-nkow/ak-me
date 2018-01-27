@@ -1,0 +1,37 @@
+div(style="overflow: auto; width: 100%;")
+    int-head(candidate="vc.candidate" user="vc.currentUser" toggle="vc.edit" card="vc.card" users="vc.users")
+
+    .int-tabs
+        dev-tabs(candidate="vc.candidate")
+
+    int-row-head(title="'Core'" type="'mark'")
+    int-row-mark(title="'Java evolution (6 vs 7 vs 8)'" model="vc.card.javaEvolution" toggle="vc.edit")
+    int-row-mark(title="'Mutable & immutable types'" model="vc.card.mutability" toggle="vc.edit")
+    int-row-mark(title="'Access modifiers'" model="vc.card.accessModifiers" toggle="vc.edit")
+    int-row-mark(title="'Data structures hierarchy'" model="vc.card.dataStructure" toggle="vc.edit")
+    int-row-mark(title="'Exceptions hierarchy'" model="vc.card.exceptions" toggle="vc.edit")
+    int-row-mark(title="'Sync & Async API'" model="vc.card.syncAsyncApi" toggle="vc.edit")
+    int-row-mark(title="'Multithreading (old & new approaches)'" model="vc.card.multithreading" toggle="vc.edit")
+    int-row-mark(title="'Memory model'" model="vc.card.memoryModel" toggle="vc.edit")
+    int-row-mark(title="'Class loaders'" model="vc.card.classLoaders" toggle="vc.edit")
+
+    int-row-head(title="'Libraries, Frameworks'" type="'mark'")
+    int-row-mark(title="'Spring (core, security, data, integration, batch)'" model="vc.card.spring" toggle="vc.edit")
+    int-row-mark(title="'JSF'" model="vc.card.jsf" toggle="vc.edit")
+    int-row-mark(title="'Google Web Toolkit'" model="vc.card.gwt" toggle="vc.edit")
+    int-row-mark(title="'Vaadin'" model="vc.card.vaadin" toggle="vc.edit")
+    int-row-mark(title="'Grails'" model="vc.card.grails" toggle="vc.edit")
+    int-row-mark(title="'Play'" model="vc.card.play" toggle="vc.edit")
+    int-row-mark(title="'JUnit'" model="vc.card.junit" toggle="vc.edit")
+    int-row-mark(title="'SLF4J'" model="vc.card.slf4j" toggle="vc.edit")
+    int-row-mark(title="'Log4j'" model="vc.card.log4j" toggle="vc.edit")
+    int-row-mark(title="'Google Guava'" model="vc.card.guava" toggle="vc.edit")
+    int-row-mark(title="'Apache Commons'" model="vc.card.apacheCommons" toggle="vc.edit")
+    int-row-mark(title="'Mockito'" model="vc.card.mockito" toggle="vc.edit")
+    int-row-mark(title="'Hibernate'" model="vc.card.hibernate" toggle="vc.edit")
+    int-row-mark(title="'Jetty'" model="vc.card.jetty" toggle="vc.edit")
+    int-row-mark(title="'Tomcat'" model="vc.card.tomcat" toggle="vc.edit")
+    int-row-mark(title="'Netty'" model="vc.card.netty" toggle="vc.edit")
+
+    .f-buttons-wrap(layout="row" layout-align="end center")
+        button.btn.btn-primary.m-btn(ng-if="vc.edit" ng-click="vc.saveCard();") SAVE

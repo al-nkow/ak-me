@@ -1,0 +1,71 @@
+.content-head
+    .main-title Account
+    current-user
+
+.content-body
+    //.flex-in(style="margin-bottom: 20px;")
+        //md-button.m-button.md-raised(ng-click="vc.showAddEditModal($event)")
+            span Add Technology
+
+
+    //.int-head-wrap
+        div(layout="row")
+            div(flex)
+                div(layout="row" layout-align="start center")
+                    .flex-in_10.upload-but-wrap(flex="none")
+                        .int-head-img(ng-if="!vc.file" style="background-image: url({{ vc.user.photo || '/images/empty_photo.svg' }});")
+                        //.int-head-img(ng-show="vc.file" ngf-background="vc.file")
+                        button.user-photo-upload-but(
+                            type="file"
+                            ngf-select="vc.uploadFile($file, $invalidFiles)"
+                            accept="image/*"
+                            ngf-max-size="1MB"
+                            ) Select File
+                    .flex-in(flex layout="row" layout-align="start center")
+                        .header-user-name {{ ::vc.user.name }}
+
+    div(layout="row")
+        div(flex="none" layout="row" layout-align="left center")
+            .flex-in.reg-label Name
+        div(flex="50")
+            .flex-in
+                input.form-control(
+                placeholder="John Doe"
+                type="text"
+                ng-model="vc.user.name"
+                )
+    div(layout="row")
+        div(flex="none" layout="row" layout-align="left center")
+            .flex-in.reg-label Email
+        div(flex="50")
+            .flex-in
+                input.form-control(
+                placeholder="john.doe@bkz.com"
+                type="text"
+                ng-model="vc.user.email"
+                )
+    div(layout="row" ng-if="vc.currentUser.role == 'admin'")
+        div(flex="none" layout="row" layout-align="left center")
+            .flex-in.reg-label Role
+        div(flex="50")
+            .flex-in
+                select.form-control(ng-model="vc.user.role" ng-options="role.role as role.role for role in vc.roles")
+                    option(value="") -- Choose a role --
+
+    div.reg-buttons-wrap(layout="row")
+        .flex-in.dib
+            md-button.m-button.md-raised(ng-click="vc.save()") SAVE
+        .flex-in.dib(ng-if="vc.currentUser.role == 'admin' && vc.currentUser._id != vc.user._id")
+            md-button.m-button.m-button_red.md-raised(ng-click="vc.delete($event)") DELETE
+        .flex-in.dib(ng-if="vc.currentUser._id == vc.user._id")
+            md-button.m-button.m-button_red.md-raised(
+                ng-click="vc.changePassModal($event)"
+                ) CHANGE PASSWORD
+
+
+        //button.btn.btn-primary.m-btn(ng-click="vc.save()" style="width: auto;") SAVE
+        //button.btn.btn-danger.m-btn(ng-click="vc.delete($event)" ng-if="vc.currentUser.role == 'admin' && vc.currentUser._id != vc.user._id") DELETE
+        //button.btn.btn-danger.m-btn(
+        //ng-if="vc.currentUser._id == vc.user._id"
+        //ng-click="vc.changePassModal($event)"
+        //) CHANGE PASSWORD

@@ -1,0 +1,42 @@
+.content-head(ng-class="{'fixed md-whiteframe-2dp': rpc.fixTop}")
+    .main-title My candidates
+    current-user
+    .content-head-controls(ng-if="rpc.resume" layout="row")
+        .flex-in
+            .icon-but.icon-but_dark(ng-click="rpc.resume = null")
+                span(icon-cancel)
+                span Cancel
+        .flex-in
+            .icon-but(ng-click="rpc.saveResume(rpc.resume)")
+                span Save
+
+.content-body(id="content-scroll")
+    .candidate-page
+        .parse-block(ng-if="rpc.currentUser.role == 'admin' || rpc.currentUser.role == 'hr'")
+
+            div(ng-if="rpc.hh.needToken")
+                //a.btn.btn-primary(style="cursor: pointer;" ng-if="!rpc.resume" ng-href="{{ rpc.hh.hhOauthUrl }}") Hh log in
+                md-button.m-button.md-raised(ng-if="!rpc.resume" ng-href="{{ rpc.hh.hhOauthUrl }}") Hh log in
+
+            div(ng-if="!rpc.hh.needToken && !rpc.resume")
+                form.form-inline(name="parse")
+                    .form-group.flex-in
+                        label Url
+                        input.form-control(type="text" ng-change="rpc.parseUrl()" ng-model="rpc.parse.hhUrl")
+                    .form-group.flex-in
+                        label Id
+                        input.form-control(type="text" name="userId" required ng-model="rpc.parse.hhUserId")
+                    .form-group.flex-in
+                        button.btn.btn-primary(ng-class="{'btn-block': parse.$invalid}" ng-click="rpc.getResume()" ng-disabled="parse.$invalid") Get Resume
+
+        resume(
+            resume="rpc.resume"
+            user="rpc.currentUser"
+            projects="rpc.projects"
+            priorities="rpc.priorities"
+            states="rpc.states"
+            english-levels="rpc.englishLevels"
+            imported="true"
+            skills="rpc.skills"
+            )
+

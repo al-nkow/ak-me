@@ -1,0 +1,42 @@
+div(style="overflow: auto; width: 100%;")
+    int-head(candidate="vc.candidate" user="vc.currentUser" toggle="vc.edit" card="vc.card" users="vc.users")
+
+    .int-tabs
+        dev-tabs(candidate="vc.candidate")
+
+    int-row-head(title="'Project Management'" type="'mark'")
+    int-row-mark(title="'Communication'" model="vc.card.communication" toggle="vc.edit")
+    int-row-mark(title="'Documentation Handling'" model="vc.card.docHandling" toggle="vc.edit")
+    int-row-mark(title="'Issues / Conflicts Resolving'" model="vc.card.issuesConflictsResolving" toggle="vc.edit")
+    int-row-mark(title="'Responsibilities & Roles Handling'" model="vc.card.responsibilitiesRolesHandling" toggle="vc.edit")
+    int-row-mark(title="'Overall Proactiveness'" model="vc.card.overallProActiveness" toggle="vc.edit")
+
+    int-row-head(title="'Product management'" type="'mark'")
+    int-row-mark(title="'Product Ownership'" model="vc.card.productOwnership" toggle="vc.edit")
+    int-row-mark(title="'Requirements Definition & Prioritization'" model="vc.card.reqDefPrioritization" toggle="vc.edit")
+    int-row-mark(title="'Evaluation & Estimation'" model="vc.card.evalEst" toggle="vc.edit")
+    int-row-mark(title="'Sprint / Scope Planning'" model="vc.card.sprintScopePlanning" toggle="vc.edit")
+    int-row-mark(title="'Release Delivery'" model="vc.card.releaseDelivery" toggle="vc.edit")
+    int-row-mark(title="'Analytics'" model="vc.card.analytics" toggle="vc.edit")
+    int-row-mark(title="'GA / YM'" model="vc.card.gaYm" toggle="vc.edit")
+    int-row-mark(title="'Kissmetrics / Mixpanel / Others'" model="vc.card.kissmetricsMixpanelOthers" toggle="vc.edit")
+    int-row-mark(title="'Personalization Tools (Elasticode / Primer)'" model="vc.card.personalizationTools" toggle="vc.edit")
+
+    int-row-head(title="'UX/UI'" type="'mark'")
+    int-row-mark(title="'User Personas'" model="vc.card.userPersonas" toggle="vc.edit")
+    int-row-mark(title="'User Stories / use cases'" model="vc.card.userStoriesCases" toggle="vc.edit")
+    int-row-mark(title="'Wireframing'" model="vc.card.wireframing" toggle="vc.edit")
+    int-row-mark(title="'Prototyping'" model="vc.card.prototyping" toggle="vc.edit")
+    int-row-mark(title="'Platform Guidelines (Android / iOS)'" model="vc.card.platformGuidelines" toggle="vc.edit")
+    int-row-mark(title="'Overall Design Knowledge'" model="vc.card.overallDesignKnowledge" toggle="vc.edit")
+    int-row-mark(title="'Front-end Capabilities'" model="vc.card.frontendCapabilities" toggle="vc.edit")
+
+    int-row-head(title="'Testing'" type="'mark'")
+    int-row-mark(title="'User Testing Techniques'" model="vc.card.userTestingTechniques" toggle="vc.edit")
+    int-row-mark(title="'A/B'" model="vc.card.ab" toggle="vc.edit")
+    int-row-mark(title="'MVT'" model="vc.card.mvt" toggle="vc.edit")
+    int-row-mark(title="'Eyetracking etc.'" model="vc.card.eyetracking" toggle="vc.edit")
+    int-row-mark(title="'Feedback Processing'" model="vc.card.feedbackProcessing" toggle="vc.edit")
+
+    .f-buttons-wrap(layout="row" layout-align="end center")
+        button.btn.btn-primary.m-btn(ng-if="vc.edit" ng-click="vc.saveCard();") SAVE

@@ -1,0 +1,31 @@
+.tech-cloud {
+    &__item {
+        position: relative;
+        display: inline-block;
+        padding: 10px 10px 10px 40px;
+        border: 1px solid #333;
+        margin: 0 10px 10px 0;
+        border-radius: 4px;
+        cursor: pointer;
+        &:hover {
+            border: 1px solid #2cabe1;
+            color: #2cabe1;
+            .tech-close {
+                fill: #2cabe1;
+            }
+        }
+    }
+}
+.tech-close {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    fill: #333333;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    left: 8px;
+    &:hover {
+        fill: #c9302c!important;
+    }
+}

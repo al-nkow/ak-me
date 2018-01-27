@@ -1,0 +1,24 @@
+md-select.bk-select.transparent(
+    ng-disabled="vc.user.role === 'guest'"
+    ng-change="vc.onChange()"
+    ng-model="vc.model"
+    placeholder="N/A"
+    ng-class="{\
+        'hide-arr': vc.hideArr,\
+        'icon-green': vc.model === 3,\
+        'icon-red': vc.model === 1,\
+        'icon-orange': vc.model === 2\
+        }"
+    )
+    md-option(
+        ng-value="item.priority"
+        ng-repeat="item in vc.priorities"
+        ng-class="{\
+            'icon-green': item.priority === 3,\
+            'icon-red': item.priority === 1,\
+            'icon-orange': item.priority === 2\
+            }"
+        )
+        div
+            span.opt-icon(icon-battery)
+            span {{ item.title }}

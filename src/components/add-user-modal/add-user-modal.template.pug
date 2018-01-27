@@ -1,0 +1,46 @@
+md-dialog(aria-label="Info")
+
+    md-toolbar
+        .md-toolbar-tools
+            h2 Register new user
+            span(flex)
+            icon-close.m-close(ng-click="vc.cancel()")
+
+    md-dialog-content
+        form.md-dialog-content.password-dialog(name="newuser" style="width: 400px;")
+            div(layout="row")
+                .flex-in(flex="30" layout="row" layout-align="start center") Full name
+                .flex-in(flex)
+                    input.bk-input(
+                    ng-class="{'error': newuser.name.$invalid && newuser.name.$touched && newuser.name.$dirty}"
+                    placeholder="John Doe"
+                    type="text"
+                    ng-model="vc.data.name"
+                    name="name"
+                    required
+                    )
+            div(layout="row")
+                .flex-in(flex="30" layout="row" layout-align="start center") Email
+                .flex-in(flex)
+                    input.bk-input(
+                    ng-class="{'error': newuser.email.$invalid && newuser.email.$touched && newuser.email.$dirty}"
+                    placeholder="your@email.com"
+                    type="email"
+                    ng-model="vc.data.email"
+                    name="email"
+                    required
+                    )
+            div(layout="row")
+                .flex-in(flex="30" layout="row" layout-align="start center") Choose a role
+                .flex-in(flex)
+                    md-select.bk-select.md-no-underline(ng-model="vc.data.role" placeholder="Select role" name="role" required)
+                        md-option(value="{{ item.role }}" ng-repeat="item in vc.roles") {{ item.role }}
+            div(layout="row" ng-if="vc.data.role === 'customer'")
+                .flex-in(flex="30" layout="row" layout-align="start center") Select project
+                .flex-in(flex)
+                    md-select.bk-select.md-no-underline(ng-model="vc.data.project" placeholder="Select project" name="role")
+                        md-option(value="{{ item.title }}" ng-repeat="item in vc.projects") {{ item.title }}
+
+    md-dialog-actions(layout="row")
+        md-button(ng-click="vc.cancel()") Cancel
+        md-button(ng-click="vc.confirm(newuser)" ng-disabled="newuser.$invalid") Invite user

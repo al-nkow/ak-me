@@ -1,0 +1,51 @@
+div(style="overflow: auto; width: 100%;")
+    int-head(candidate="vc.candidate" user="vc.currentUser" toggle="vc.edit" card="vc.card" users="vc.users")
+
+    .int-tabs
+        dev-tabs(candidate="vc.candidate")
+
+    int-row-head(title="'Automation'" type="'mark'")
+    int-row-mark(title="'Chef'" model="vc.card.chef" toggle="vc.edit")
+    int-row-mark(title="'Puppet'" model="vc.card.puppet" toggle="vc.edit")
+    int-row-mark(title="'Ansible'" model="vc.card.ansible" toggle="vc.edit")
+    int-row-mark(title="'Salt'" model="vc.card.salt" toggle="vc.edit")
+
+    int-row-head(title="'Monitoring'" type="'mark'")
+    int-row-mark(title="'Nagios'" model="vc.card.nagios" toggle="vc.edit")
+    int-row-mark(title="'Zabbix'" model="vc.card.zabbix" toggle="vc.edit")
+    int-row-mark(title="'Prometheus.io'" model="vc.card.prometheus" toggle="vc.edit")
+    int-row-mark(title="'DataDog'" model="vc.card.datadog" toggle="vc.edit")
+
+    int-row-head(title="'Logging'" type="'mark'")
+    int-row-mark(title="'ELK'" model="vc.card.elk" toggle="vc.edit")
+    int-row-mark(title="'Loggly'" model="vc.card.loggly" toggle="vc.edit")
+    int-row-mark(title="'Splunk'" model="vc.card.splunk" toggle="vc.edit")
+    int-row-mark(title="'Graylog'" model="vc.card.graylog" toggle="vc.edit")
+
+    int-row-head(title="'Virtualization'" type="'mark'")
+    int-row-mark(title="'VMWare'" model="vc.card.vmware" toggle="vc.edit")
+    int-row-mark(title="'KVM'" model="vc.card.kvm" toggle="vc.edit")
+    int-row-mark(title="'Xen'" model="vc.card.xen" toggle="vc.edit")
+
+    int-row-head(title="'Orchestration'" type="'mark'")
+    int-row-mark(title="'Docker'" model="vc.card.docker" toggle="vc.edit")
+    int-row-mark(title="'Fleet'" model="vc.card.fleet" toggle="vc.edit")
+    int-row-mark(title="'Swarm'" model="vc.card.swarm" toggle="vc.edit")
+    int-row-mark(title="'Kubernetes'" model="vc.card.kubernetes" toggle="vc.edit")
+    int-row-mark(title="'Mesos'" model="vc.card.mesos" toggle="vc.edit")
+
+    int-row-head(title="'Cloud Services'" type="'mark'")
+    int-row-mark(title="'AWS'" model="vc.card.aws" toggle="vc.edit")
+    int-row-mark(title="'Azure'" model="vc.card.azure" toggle="vc.edit")
+    int-row-mark(title="'Heroku'" model="vc.card.heroku" toggle="vc.edit")
+    int-row-mark(title="'OpenShift'" model="vc.card.openshift" toggle="vc.edit")
+    int-row-mark(title="'Google'" model="vc.card.google" toggle="vc.edit")
+    int-row-mark(title="'Rackspace'" model="vc.card.rackspace" toggle="vc.edit")
+    int-row-mark(title="'Softlayer'" model="vc.card.softlayer" toggle="vc.edit")
+
+    int-row-head(title="'CI'" type="'mark'")
+    int-row-mark(title="'Jenkins'" model="vc.card.jenkins" toggle="vc.edit")
+    int-row-mark(title="'Teamcity'" model="vc.card.teamcity" toggle="vc.edit")
+
+    .f-buttons-wrap(layout="row" layout-align="end center")
+        button.btn.btn-primary.m-btn(ng-if="vc.edit" ng-click="vc.saveCard();") SAVE

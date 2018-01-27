@@ -1,0 +1,211 @@
+.content-head
+    .main-title Create resume
+    current-user
+
+.content-body
+
+    .page.old-style-create-resume-page
+        form.create-resume(name="createResumeForm" ng-submit="vc.save()")
+            //.lform-block.container-fluid: h2.h2.text-center Create resume
+            //.lform-block
+                .lform-title Attach
+                .lform-row(layout="row")
+                    // File
+                    div(flex="100")
+                        .flex-in Upload files (supported types: DOC / DOCX / PPT / PPTX / PDF / XLS / XLSX )
+                        .flex-in
+                            .lie-file-inp(
+                            type="file"
+                            ngf-select="vc.addFile($files, $invalidFiles)"
+                            ngf-pattern="'.doc,.docx,.ppt,.pptx,.pdf,.xls,.xlsx'"
+                            ngf-accept="'.doc,.docx,.ppt,.pptx,.pdf,.xls,.xlsx'"
+                            multiple
+                            )
+                                span(ng-if="!vc.files") Select files
+                                span(
+                                ng-if="vc.files && vc.files.length"
+                                ng-repeat="item in vc.files"
+                                )
+                                    span {{ item.name }}
+                                    span(ng-if="!$last") ,&ensp;
+                                span(
+                                ng-if="vc.invalidFiles && vc.invalidFiles.length"
+                                ng-repeat="item in vc.invalidFiles"
+                                class="l-req"
+                                )
+                                    span {{ item.name }}
+                                    span(ng-if="!$last") ,&ensp;
+                                .lie-file-inp__del(
+                                ng-if="vc.files"
+                                ng-click="$event.stopPropagation(); vc.files = null; vc.invalidFiles = null"
+                                icon-close
+                                )
+                        .flex-in(
+                        ng-show="vc.invalidFiles.length"
+                        class="l-req"
+                        ) Please select files of supported type
+
+            .lform-block.container-fluid
+                .lform-title Personal
+                .lform-row(layout="row")
+                    // First name
+                    .form-group.flex-in(flex="25")
+                        label.fg-lable First name <span class="l-req">*</span>
+                        input.bk-input(type="text" ng-model="vc.resume.first_name" placeholder="First name" name="first_name" required)
+                    // Last name
+                    .form-group.flex-in(flex="25")
+                        label.fg-lable Last name <span class="l-req">*</span>
+                        input.bk-input(type="text" ng-model="vc.resume.last_name" placeholder="Last name" required)
+                    // Date of birth
+                    .form-group.flex-in(flex="25")
+                        label.fg-lable Age
+                        input.bk-input(type="text" ng-model="vc.resume.age" placeholder="Age")
+                    // Gender
+                    .form-group.flex-in(flex="25")
+                        label.fg-lable Gender
+                        md-select.bk-select.sharp(ng-model="vc.resume.gender" placeholder="Select")
+                            md-option(ng-value="item.id" ng-repeat="item in vc.genders") {{ item.name }}
+
+            .lform-block.container-fluid
+                .lform-title HR
+                .lform-row.row(layout="row")
+                    // Position
+                    .form-group.flex-in(flex="50")
+                        label Position <span class="l-req">*</span>
+                        input.bk-input(type="text" ng-model="vc.resume.title" placeholder="Position" name="position" required)
+
+                    // Skills
+                    .form-group.flex-in(flex="50")
+                        label Key skills
+                        md-select.bk-select.sharp(ng-model="vc.resume.skill_set" multiple placeholder="Skills")
+                            md-option(ng-value="item.title" ng-repeat="item in vc.skills") {{ item.title }}
+                        //bk-chips.block-style(
+                            placeholder="None"
+                            options="vc.skills"
+                            label-key="title"
+                            value-key="title"
+                            model="vc.filter.skill_set"
+                            search="false"
+                            )
+
+            .lform-block.container-fluid
+                .lform-title Contacts
+                .lform-row.row(layout="row")
+                    // Country
+                    .form-group.flex-in(flex="25")
+                        label Country
+                        input.bk-input(type="text" ng-model="vc.resume.location.country" placeholder="Country")
+                    // City
+                    .form-group.flex-in(flex="25")
+                        label City
+                        input.bk-input(type="text" ng-model="vc.resume.location.city" placeholder="City")
+                    // Phone
+                    .form-group.flex-in(flex="25")
+                        label Phone <span class="l-req">*</span>
+                        input.bk-input(type="phoneNumber" ng-model="vc.resume.contact.phone" placeholder="Phone" name="phone" required ng-pattern="/^[- +()]*[0-9][- +()0-9]*$/")
+                    // Email
+                    .form-group.flex-in(flex="25")
+                        label Email <span class="l-req">*</span>
+                        input.bk-input(type="email" ng-model="vc.resume.contact.email" placeholder="Email" name="email")
+
+                .lform-row.row(layout="row")
+                    // Skype
+                    .form-group.flex-in(flex="33")
+                        label Skype
+                        input.bk-input(type="text" ng-model="vc.resume.site.skype" placeholder="Skype")
+                    // Linkedin
+                    .form-group.flex-in(flex="33")
+                        label Linkedin
+                        input.bk-input(type="text" ng-model="vc.resume.site.linkedin" placeholder="Linkedin")
+                    // Github
+                    .form-group.flex-in(flex="33")
+                        label Github
+                        input.bk-input(type="text" ng-model="vc.resume.site.github" placeholder="Github")
+
+                //.lform-row.row
+                    .col-md-12.form-group
+                        label Other links
+                        bk-chips.block-style(
+                            placeholder="None"
+                            options="vc.skills"
+                            label-key="title"
+                            value-key="title"
+                            model="vc.resume.site.others"
+                            search="true"
+                            tagging="true"
+                            tagging-label="add new link"
+                        )
+
+            .lform-block.container-fluid
+                .row(layout="row")
+                    div(flex="25" layout="column")
+                        .lform-title Salary
+                        // Amount
+                        .form-group.flex-in
+                            label Amount
+                            input.bk-input(type="text" ng-model="vc.resume.salary.amount" placeholder="Value")
+                        // Currency
+                        .form-group.flex-in
+                            label Currency
+                            md-select.bk-select.sharp(ng-model="vc.resume.salary.currency" placeholder="Select currency")
+                                md-option(ng-value="item" ng-repeat="item in vc.currencyList") {{ item }}
+                    div(flex="75" layout="column")
+                        .lform-title Interviews
+                        .row(layout="row")
+                            div(flex="33")
+                                .form-group.flex-in
+                                    label HR interview date
+                                    .form-control: bk-datepicker(model="vc.resume.hrInterviewDate")
+                                .form-group.flex-in
+                                    label HR estimate
+                                    md-select.bk-select.sharp(ng-model="vc.resume.hrInterviewEstimate" placeholder="None")
+                                        md-option(ng-value="item" ng-repeat="item in vc.estimates") {{ item }}
+                            div(flex="33")
+                                .form-group.flex-in
+                                    label Dev interview date
+                                    .form-control: bk-datepicker(model="vc.resume.devInterviewDate")
+                                .form-group.flex-in
+                                    label Dev estimate
+                                    md-select.bk-select.sharp(ng-model="vc.resume.devInterviewEstimate" placeholder="None")
+                                        md-option(ng-value="item" ng-repeat="item in vc.estimates") {{ item }}
+                            div(flex="33")
+                                .form-group.flex-in
+                                    label Customer interview date
+                                    .form-control: bk-datepicker(model="vc.resume.customerInterviewDate")
+                                .form-group.flex-in
+                                    label Customer estimate
+                                    md-select.bk-select.sharp(ng-model="vc.resume.customerInterviewEstimate" placeholder="None")
+                                        md-option(ng-value="item" ng-repeat="item in vc.estimates") {{ item }}
+
+            .container-fluid
+                .lform-title Details
+                .lform-row.row(layout="row")
+                    .form-group.flex-in(flex="25")
+                        label Priority
+                        md-select.bk-select.sharp(ng-model="vc.resume.candidatePriority" placeholder="None")
+                            md-option(ng-value="item.priority" ng-repeat="item in vc.priorities") {{ item.title }}
+                    .form-group.flex-in(flex="25")
+                        label State
+                        md-select.bk-select.sharp(ng-model="vc.resume.state" placeholder="None")
+                            md-option(ng-value="item.priority" ng-repeat="item in vc.states") {{ item.title }}
+                    .form-group.flex-in(flex="25")
+                        label English level
+                        md-select.bk-select.sharp(ng-model="vc.resume.englishLevel" placeholder="None")
+                            md-option(ng-value="item.priority" ng-repeat="item in vc.englishLevels") {{ item.title }}
+                    .form-group.flex-in(flex="25")
+                        label Project
+                        md-select.bk-select.sharp(ng-model="vc.resume.projec" placeholder="None")
+                            md-option(ng-value="item.title" ng-repeat="item in vc.projects") {{ item.title }}
+                .lform-row.row
+                    .form-group.flex-in
+                        label Notes
+                        textarea.bk-input(ng-model="vc.resume.notes" placeholder="Summary")
+
+                .row
+                    .flex-in
+                        button.btn.btn-primary.pull-right(type="submit") Save resume
+
+
+
+
+

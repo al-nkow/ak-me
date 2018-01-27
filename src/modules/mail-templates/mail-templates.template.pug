@@ -1,0 +1,13 @@
+.content-head
+    .main-title Mail templates
+    current-user
+
+.content-body
+    .flex-in(style="margin-bottom: 20px;")
+        md-button.m-button.md-raised(ng-click="vc.showTemplateModal($event, null)") ADD TEMPLATE
+
+    .admin-row(layout="row" ng-repeat="item in vc.templates" ng-click="vc.showTemplateModal($event, item)")
+        .flex-in(flex="none")
+            icon-close.admin-row__delete(ng-click="vc.showDeleteModal($event, item);")
+        .flex-in(flex layout="row" layout-align="start center")
+            .admin-row__name {{ item.title }}

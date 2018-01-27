@@ -1,0 +1,38 @@
+div(style="overflow: auto; width: 100%;")
+    int-head(candidate="vc.candidate" user="vc.currentUser" toggle="vc.edit" card="vc.card" users="vc.users")
+
+    .int-tabs
+        dev-tabs(candidate="vc.candidate")
+
+    int-row-head(title="'Core'" type="'mark'")
+    int-row-mark(title="'Data types'" model="vc.card.dataTypes" toggle="vc.edit")
+    int-row-mark(title="'Comprehensions (list/set/dict/generator)'" model="vc.card.comprehensions" toggle="vc.edit")
+    int-row-mark(title="'Generators'" model="vc.card.generators" toggle="vc.edit")
+    int-row-mark(title="'Objects (old/new/magic methods)'" model="vc.card.objects" toggle="vc.edit")
+    int-row-mark(title="'Decorators'" model="vc.card.decorators" toggle="vc.edit")
+    int-row-mark(title="'Multithreading/Multiprocessing'" model="vc.card.multithreading" toggle="vc.edit")
+    int-row-mark(title="'Metaclasses'" model="vc.card.metaclasses" toggle="vc.edit")
+    int-row-mark(title="'Modules (search/loading)'" model="vc.card.modules" toggle="vc.edit")
+
+    int-row-head(title="'Libraries, frameworks'" type="'mark'")
+    int-row-mark(title="'Celery'" model="vc.card.celery" toggle="vc.edit")
+    int-row-mark(title="'Flask'" model="vc.card.flask" toggle="vc.edit")
+    int-row-mark(title="'Bottle'" model="vc.card.bottle" toggle="vc.edit")
+    int-row-mark(title="'SqlAlchemy'" model="vc.card.sqlAlchemy" toggle="vc.edit")
+    int-row-mark(title="'Django ORM'" model="vc.card.djangoOrm" toggle="vc.edit")
+    int-row-mark(title="'Alembic'" model="vc.card.alembic" toggle="vc.edit")
+    int-row-mark(title="'Fabric'" model="vc.card.fabric" toggle="vc.edit")
+    int-row-mark(title="'Argparse'" model="vc.card.argparse" toggle="vc.edit")
+    int-row-mark(title="'PyGtk'" model="vc.card.pygtk" toggle="vc.edit")
+    int-row-mark(title="'PyQt'" model="vc.card.pyqt" toggle="vc.edit")
+    int-row-mark(title="'wxPython'" model="vc.card.wxPython" toggle="vc.edit")
+    int-row-mark(title="'Tkinter'" model="vc.card.tkinter" toggle="vc.edit")
+
+    int-row-head(title="'CMS'" type="'mark'")
+    int-row-mark(title="'Django'" model="vc.card.django" toggle="vc.edit")
+    int-row-mark(title="'Kotti CMS'" model="vc.card.kotti" toggle="vc.edit")
+    int-row-mark(title="'Pyplate'" model="vc.card.pyplate" toggle="vc.edit")
+    int-row-mark(title="'Mezzanine'" model="vc.card.mezzanine" toggle="vc.edit")
+
+    .f-buttons-wrap(layout="row" layout-align="end center")
+        button.btn.btn-primary.m-btn(ng-if="vc.edit" ng-click="vc.saveCard();") SAVE

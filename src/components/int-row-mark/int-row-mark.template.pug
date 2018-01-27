@@ -1,0 +1,8 @@
+.t-row.t-row_three(layout="row")
+    .t-row-in(flex="30" layout="row" layout-align="start center") {{ vc.title }}
+    .t-row-in(flex="20" layout="row" layout-align="start center")
+        span(ng-if="!vc.toggle") {{ vc.model.mark || '' }}
+        md-select.bk-select(ng-if="vc.toggle" ng-model="vc.model.mark" placeholder="Select mark")
+            md-option(value="{{ item }}" ng-repeat="item in vc.estimates") {{ item }}
+    .t-row-in(flex layout="row" layout-align="start center")
+        block-edit(model="vc.model.comment" toggle="vc.toggle" placeholder="'Comments'")

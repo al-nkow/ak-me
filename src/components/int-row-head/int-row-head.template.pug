@@ -1,0 +1,7 @@
+.t-row.t-row_head(layout="row" ng-if="vc.type != 'mark'")
+    .t-row-in(flex="30" layout="row" layout-align="start center") {{ vc.title }}
+
+.t-row.t-row_head(layout="row" ng-if="vc.type == 'mark'")
+    .t-row-in(flex="30" layout="row" layout-align="start center") {{ vc.title }}
+    .t-row-in(flex="20" layout="row" layout-align="center center") Mark (1-5)
+    .t-row-in(flex layout="row" layout-align="center center") Comments

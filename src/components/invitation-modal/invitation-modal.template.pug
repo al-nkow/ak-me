@@ -1,0 +1,79 @@
+md-dialog.fullscreen-dialog(aria-label="Info")
+
+    div.full-height(layout="column")
+        div(flex="none")
+            md-toolbar
+                .md-toolbar-tools
+                    h2 Invite candidate
+                    span(flex)
+                    icon-close.m-close(ng-click="vc.cancel()")
+
+        div(flex)
+            md-dialog-content
+                form.md-dialog-content.full-height(layout="column" name="inviteform")
+
+                    div(flex="none" layout="row")
+                        .flex-in(
+                        flex="25" flex-sm="15" flex-gt-sm="10"
+                        layout="row" layout-align="start center"
+                        ) Template
+                        .flex-in(flex)
+                            md-select.bk-select(
+                            ng-change="vc.selectTemplate()"
+                            ng-model="vc.current"
+                            placeholder="Select email template"
+                            )
+                                md-option(value="{{ item }}" ng-repeat="item in vc.templates") {{ item.title }}
+
+                    div(flex="none" layout="row")
+                        .flex-in(
+                        flex="25" flex-sm="15" flex-gt-sm="10"
+                        layout="row" layout-align="start center"
+                        ) Reply to
+                        .flex-in(flex)
+                            input.bk-input(type="text" ng-model="vc.data.replyTo" placeholder="Reply to")
+
+                    div(flex="none" layout="row")
+                        .flex-in(
+                        flex="25" flex-sm="15" flex-gt-sm="10"
+                        layout="row" layout-align="start center"
+                        ) Copy
+                        .flex-in(flex)
+                            input.bk-input(
+                            placeholder="Copy"
+                            type="text"
+                            ng-model="vc.data.cc"
+                            )
+
+                    div(flex="none" layout="row")
+                        .flex-in(
+                        flex="25" flex-sm="15" flex-gt-sm="10"
+                        layout="row" layout-align="start center"
+                        ) Subject
+                        .flex-in(flex)
+                            input.bk-input(
+                            ng-class="{'error': inviteform.subject.$invalid && inviteform.subject.$touched && inviteform.subject.$dirty}"
+                            placeholder="Subject"
+                            type="text"
+                            ng-model="vc.data.subject"
+                            name="subject"
+                            required
+                            )
+
+                    div(flex layout="row")
+                        .flex-in(
+                        flex="25" flex-sm="15" flex-gt-sm="10"
+                        layout="row" layout-align="start center"
+                        ) Message
+                        .flex-in(flex)
+                            keep-breaks-textarea.full-height(
+                                placeholder="'Message'"
+                                model="vc.data.body"
+                                required="true"
+                                )
+
+        div(flex="none")
+            md-dialog-actions(layout="row")
+                md-button(ng-click="vc.clear()") Clear
+                md-button(ng-click="vc.cancel()") Cancel
+                md-button(ng-click="vc.confirm()" ng-disabled="inviteform.$invalid") Send

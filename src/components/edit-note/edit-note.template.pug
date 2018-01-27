@@ -1,0 +1,15 @@
+md-dialog(aria-label="Info" flex="40")
+
+    md-toolbar
+        .md-toolbar-tools
+            h2 {{ vc.originalNotes ? 'Edit' : 'Add'  }} notes
+            span(flex)
+            icon-close.m-close(ng-click="vc.cancel()")
+
+    md-dialog-content
+        .md-dialog-content
+            textarea.bk-input(ng-model="vc.locals.notes")
+
+    md-dialog-actions(layout="row")
+        md-button(ng-click="vc.cancel()") Cancel
+        md-button(ng-click="vc.confirm()") Save

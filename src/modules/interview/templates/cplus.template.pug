@@ -1,0 +1,23 @@
+div(style="overflow: auto; width: 100%;")
+    int-head(candidate="vc.candidate" user="vc.currentUser" toggle="vc.edit" card="vc.card" users="vc.users")
+
+    .int-tabs
+        dev-tabs(candidate="vc.candidate")
+
+    int-row-head(title="'Core'" type="'mark'")
+    int-row-mark(title="'C++ evolution (C++11 vs C++14)'" model="vc.card.CPlusEvolution" toggle="vc.edit")
+    int-row-mark(title="'Multiple inheritance'" model="vc.card.multipleInheritance" toggle="vc.edit")
+    int-row-mark(title="'Data structures'" model="vc.card.dataStructures" toggle="vc.edit")
+    int-row-mark(title="'Exceptions handling'" model="vc.card.exceptionsHandling" toggle="vc.edit")
+    int-row-mark(title="'Multithreading'" model="vc.card.multiThreading" toggle="vc.edit")
+    int-row-mark(title="'Templates'" model="vc.card.templates" toggle="vc.edit")
+    int-row-mark(title="'Lambda expressions'" model="vc.card.lambdaExpressions" toggle="vc.edit")
+    int-row-mark(title="'Object storage'" model="vc.card.objectStorage" toggle="vc.edit")
+
+    int-row-head(title="'Libraries, frameworks'" type="'mark'")
+    int-row-mark(title="'Boost'" model="vc.card.boost" toggle="vc.edit")
+    int-row-mark(title="'STL'" model="vc.card.stl" toggle="vc.edit")
+    int-row-mark(title="'QT'" model="vc.card.qt" toggle="vc.edit")
+
+    .f-buttons-wrap(layout="row" layout-align="end center")
+        button.btn.btn-primary.m-btn(ng-if="vc.edit" ng-click="vc.saveCard();") SAVE

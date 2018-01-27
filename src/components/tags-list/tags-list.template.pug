@@ -1,0 +1,3 @@
+.bk-tags-list
+    .bk-tags-list__item(ng-repeat="skill in vc.data | limitTo: 5") {{ ::skill }}
+    .bk-tags-list__more(ng-if="vc.data.length > 5") +{{ vc.data.length - 5 }}

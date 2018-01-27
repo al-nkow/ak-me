@@ -1,0 +1,31 @@
+div(style="overflow: auto; width: 100%;")
+    int-head(candidate="vc.candidate" user="vc.currentUser" toggle="vc.edit" card="vc.card" users="vc.users")
+
+    .int-tabs
+        dev-tabs(candidate="vc.candidate")
+
+    int-row-head(title="'Queues'" type="'mark'")
+    int-row-mark(title="'RabbitMQ'" model="vc.card.rabbitMq" toggle="vc.edit")
+    int-row-mark(title="'ZeroMQ'" model="vc.card.zeroMq" toggle="vc.edit")
+    int-row-mark(title="'JMS'" model="vc.card.jmx" toggle="vc.edit")
+    int-row-mark(title="'Kafka'" model="vc.card.kafka" toggle="vc.edit")
+
+    int-row-head(title="'Real-Time Processing'" type="'mark'")
+    int-row-mark(title="'Spark'" model="vc.card.spark" toggle="vc.edit")
+    int-row-mark(title="'Storm'" model="vc.card.storm" toggle="vc.edit")
+    int-row-mark(title="'Samza'" model="vc.card.samza" toggle="vc.edit")
+    int-row-mark(title="'Flink'" model="vc.card.flink" toggle="vc.edit")
+    int-row-mark(title="'AWS Lambda'" model="vc.card.awsLambda" toggle="vc.edit")
+
+    int-row-head(title="'Hadoop Ecosystem'" type="'mark'")
+    int-row-mark(title="'Hadoop'" model="vc.card.hadoop" toggle="vc.edit")
+    int-row-mark(title="'Flume'" model="vc.card.flume" toggle="vc.edit")
+    int-row-mark(title="'Sqoop'" model="vc.card.sqoop" toggle="vc.edit")
+    int-row-mark(title="'Pig'" model="vc.card.pig" toggle="vc.edit")
+    int-row-mark(title="'Hive'" model="vc.card.hive" toggle="vc.edit")
+    int-row-mark(title="'Oozie'" model="vc.card.oozie" toggle="vc.edit")
+    int-row-mark(title="'HBase'" model="vc.card.hbase" toggle="vc.edit")
+    int-row-mark(title="'Zookeeper'" model="vc.card.zookeeper" toggle="vc.edit")
+
+    .f-buttons-wrap(layout="row" layout-align="end center")
+        button.btn.btn-primary.m-btn(ng-if="vc.edit" ng-click="vc.saveCard();") SAVE

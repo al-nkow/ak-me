@@ -1,0 +1,51 @@
+md-select.bk-select.transparent(
+    ng-disabled="vc.user.role === 'guest'"
+    ng-change="vc.onChange()"
+    ng-model="vc.model"
+    placeholder="N/A"
+    ng-class="{\
+        'hide-arr': vc.hideArr,\
+        'green': vc.model === 3,\
+        'red': vc.model === 5,\
+        'blue': vc.model === 4,\
+        'light-blue': vc.model === 1,\
+        'orange': vc.model === 2\
+    }"
+    )
+    md-option(
+        ng-value="item.priority"
+        ng-repeat="item in vc.states"
+        ng-class="{\
+            'green': item.priority === 3,\
+            'red': item.priority === 5,\
+            'blue': item.priority === 4,\
+            'light-blue': item.priority === 1,\
+            'orange': item.priority === 2\
+            }"
+        )
+        div
+            // Active
+            span.opt-icon(icon-sync ng-if="item.priority === 1")
+            // Hired
+            span.opt-icon(icon-check-circle ng-if="item.priority === 3")
+            // Invited
+            span.opt-icon(icon-assignment ng-if="item.priority === 2")
+            // Rejected
+            span.opt-icon(icon-cancel-circle ng-if="item.priority === 5")
+            // Reserved
+            span.opt-icon(icon-bookmark ng-if="item.priority === 4")
+            span {{ item.title }}
+
+//md-select.bk-select(ng-model="vc.reason" aria-label="reason select")
+    md-option(ng-repeat="item in vc.reasons" ng-value="item.value") {{ item.title }}
+
+.reason-field(ng-if="vc.user.role === 'guest' && vc.reasonView" style="cursor: default;") {{ vc.reasonView }}
+div(ng-if="vc.user.role !== 'guest'")
+    .word-but.word-but_small(ng-if="!vc.reasonView && vc.model === 5" ng-click="vc.openMenu(vc.menu, vc.el);") Add reason
+
+    md-menu(ng-init="vc.menu = $mdMenu; vc.el = $event;")
+        .reason-field(ng-click="vc.openMenu($mdMenu, $event)") {{ vc.reasonView }}
+        md-menu-content.reason-select-menu-content
+            .reason-select-title Select reason
+            md-menu-item(ng-repeat="item in vc.reasons")
+                md-button.reason-select-item(ng-click="vc.selectMenuItem(item)") {{ item.title }}

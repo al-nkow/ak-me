@@ -1,0 +1,25 @@
+.int-head-wrap
+    edit-but.int-head-toggle(
+    ng-if="vc.user.role == 'admin' || vc.user.role == 'hr' || vc.user.role == 'lead'"
+    light="true"
+    toggle="vc.toggle"
+    )
+    div(layout="row")
+        div(flex="40")
+            div(layout="row" layout-align="start center")
+                .flex-in_10(flex="none")
+                    .int-head-img(style="background-image: url({{ vc.candidate.photo.small || '/images/empty_photo.svg' }});")
+                .flex-in(flex layout="row" layout-align="start center")
+                    .int-head-name(ui-sref="app.card.resume") {{ vc.candidate.first_name + ' ' + vc.candidate.last_name }}
+        div(flex="55" layout="column")
+            div(flex layout="row" layout-align="start end")
+                .flex-in(flex="35" flex-md="30" flex-gt-md="20") Interviewer name:
+                .flex-in(flex ng-if="!vc.toggle || vc.user.role != 'admin'") {{ vc.card.createdBy.name }}
+                .flex-in.int-head-top-field(flex ng-if="vc.toggle && vc.user.role == 'admin'")
+                    md-select.bk-select(ng-model="vc.card.createdBy" placeholder="Select user")
+                        md-option(value="{{ item._id }}" ng-repeat="item in vc.users") {{ item.name }}
+            div(flex layout="row" layout-align="start start")
+                .flex-in(flex="35" flex-md="30" flex-gt-md="20") Interview date:
+                .flex-in(flex ng-if="!vc.toggle || vc.user.role != 'admin'") {{ vc.card.createdDate | date: 'dd.MM.yyyy' }}
+                .flex-in.int-head-bottom-field(flex ng-if="vc.toggle && vc.user.role == 'admin'")
+                    bk-datepicker(model="vc.card.createdDate")

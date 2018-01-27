@@ -1,0 +1,86 @@
+div(style="overflow: auto; width: 100%;")
+    int-head(candidate="vc.candidate" user="vc.currentUser" toggle="vc.edit" card="vc.card" users="vc.users")
+
+    .int-tabs
+        dev-tabs(candidate="vc.candidate")
+
+    int-row-head(title="'Overall Maturity and Background'")
+    .t-row(layout="row")
+        .t-row-in(flex="30" layout="row" layout-align="start center") Age
+        .t-row-in(flex layout="row" layout-align="start center")
+            span(ng-if="vc.candidate.age") {{ vc.candidate.age }} y.o.&ensp;
+            span(ng-if="vc.candidate.birth_date") ({{ vc.candidate.birth_date | date: 'dd.MM.yyyy'}})
+
+    int-row-text(
+    title="'Years in industry'"
+    model="vc.card.yearsInIndustry"
+    toggle="vc.edit"
+    placeholder="'Years in industry'")
+    int-row-text(
+    title="'Roles performed (engineer, coacher, leader, manager, etc)'"
+    model="vc.card.rolesPerformed"
+    toggle="vc.edit"
+    placeholder="'Roles performed'"
+    )
+    int-row-text(title="'Education'" model="vc.card.education" toggle="vc.edit" placeholder="'Education'")
+
+    int-row-head(title="'Interpersonal Qualities'" type="'mark'")
+    int-row-mark(title="'Presenting of information'" model="vc.card.presentInfo" toggle="vc.edit")
+    int-row-mark(title="'Active listening'" model="vc.card.activeListening" toggle="vc.edit")
+    int-row-mark(title="'Adjusting communication to the context'" model="vc.card.adjustCommunication" toggle="vc.edit")
+    int-row-mark(title="'Result orientation'" model="vc.card.resultOrient" toggle="vc.edit")
+    int-row-mark(title="'Client orientation'" model="vc.card.clientOrient" toggle="vc.edit")
+    int-row-mark(title="'Conflict'" model="vc.card.conflict" toggle="vc.edit")
+    int-row-mark(title="'Leadership'" model="vc.card.leadership" toggle="vc.edit")
+    int-row-mark(title="'Problem solving'" model="vc.card.problemSolving" toggle="vc.edit")
+    int-row-mark(title="'Any interpersonal risks if there'" model="vc.card.interpersonalRisks" toggle="vc.edit")
+
+    int-row-head(title="'Interpersonal Competences'" type="'mark'" toggle="vc.edit")
+    int-row-mark(title="'Working as a team member'" model="vc.card.teamMember" toggle="vc.edit")
+    int-row-mark(title="'Leading teams'" model="vc.card.teamLeader" toggle="vc.edit")
+    int-row-mark(title="'Max. team size candidate worked with'" model="vc.card.maxTeamSize" toggle="vc.edit")
+    int-row-mark(
+    title="'Level of communication in English (with native speakers)'"
+    model="vc.card.commLevelInEnglish"
+    toggle="vc.edit"
+    )
+
+    int-row-head(title="'Additional information and tests'")
+    int-row-text(
+    title="'External references'"
+    model="vc.card.extReferences"
+    toggle="vc.edit"
+    placeholder="'External references'"
+    )
+    int-row-text(
+    title="'Valid international passport(s) and visas (dates of expiration)'"
+    model="vc.card.interPassVisas"
+    toggle="vc.edit"
+    placeholder="'Passport(s) and visas'"
+    )
+
+    int-row-head(title="'Candidate availability'")
+    int-row-text(title="'Candidate motivation (salary, project, technology, etc)'" model="vc.card.motivation" toggle="vc.edit" placeholder="'Candidate motivation'")
+    int-row-text(title="'Job search status'" model="vc.card.jobSearchStatus" toggle="vc.edit" placeholder="'Job search status'")
+    int-row-text(title="'Nearest possible start date'" model="vc.card.nearestPossStartDate" toggle="vc.edit" placeholder="'Nearest possible start date'")
+    int-row-text(title="'Other availability details'" model="vc.card.otherAvailabilityDetails" toggle="vc.edit" placeholder="'Other availability details'")
+    int-row-text(title="'Readiness to go to business trip (locally, abroad, duration)'" model="vc.card.businessTrips" toggle="vc.edit" placeholder="'Readiness to go to business trip'")
+    int-row-text(title="'Expected position (vacancy) role'" model="vc.card.expPosition" toggle="vc.edit" placeholder="'Role'")
+
+    int-row-head(title="'Conclusion'")
+    // - Set level
+    .t-row.t-row_three(layout="row")
+        .t-row-in(flex="30" layout="row" layout-align="start center") Set level estimate
+        .t-row-in(flex="35" layout="row" layout-align="start center")
+            span(ng-if="!vc.edit") {{ vc.card.level.level }}
+            md-select.bk-select(ng-if="vc.edit" ng-model="vc.card.level" placeholder="Select level")
+                md-option(value="{{ item._id }}" ng-repeat="item in vc.collections.levels") {{ item.level }}
+        .t-row-in(flex="35" layout="row" layout-align="start center")
+            span(ng-if="!vc.edit") {{ vc.card.subLevel.subLevel }}
+            md-select.bk-select(ng-if="vc.edit" ng-model="vc.card.subLevel" placeholder="Select sublevel")
+                md-option(value="{{ item._id }}" ng-repeat="item in vc.collections.subLevels") {{ item.subLevel }}
+
+    int-row-text(title="'HR Summary (Comments)'" model="vc.card.summary" toggle="vc.edit" placeholder="'Comments'")
+
+    .f-buttons-wrap(layout="row" layout-align="end center")
+        button.btn.btn-primary.m-btn(ng-if="vc.edit" ng-click="vc.saveCard();") SAVE

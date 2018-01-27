@@ -1,0 +1,36 @@
+div(style="overflow: auto; width: 100%;")
+    int-head(candidate="vc.candidate" user="vc.currentUser" toggle="vc.edit" card="vc.card" users="vc.users")
+
+    .int-tabs
+        dev-tabs(candidate="vc.candidate")
+
+    int-row-head(title="'Core'" type="'mark'")
+    int-row-mark(title="'Analytical Nature'" model="vc.card.analysis" toggle="vc.edit")
+    int-row-mark(title="'Attention to Detail'" model="vc.card.attention" toggle="vc.edit")
+    int-row-mark(title="'ISTQB Foundation'" model="vc.card.istqbFoundation" toggle="vc.edit")
+    int-row-mark(title="'Mobile Testing'" model="vc.card.mobileTesting" toggle="vc.edit")
+    int-row-mark(title="'Cross Browser Testing'" model="vc.card.crossBrowserTesting" toggle="vc.edit")
+    int-row-mark(title="'Cross Platform Testing'" model="vc.card.crossPlatformTesting" toggle="vc.edit")
+    int-row-mark(title="'Security Testing'" model="vc.card.securityTesting" toggle="vc.edit")
+    int-row-mark(title="'Performance Testing'" model="vc.card.performanceTesting" toggle="vc.edit")
+    int-row-mark(title="'Usability Testing'" model="vc.card.usabilityTesting" toggle="vc.edit")
+    int-row-mark(title="'Basic HTML/CSS'" model="vc.card.basicHtmlCss" toggle="vc.edit")
+
+    int-row-head(title="'Functional Testing'" type="'mark'")
+    int-row-mark(title="'Functional Testing Approaches'" model="vc.card.funcTestingApproaches" toggle="vc.edit")
+    int-row-mark(title="'Testing Types'" model="vc.card.testingTypes")
+    int-row-mark(title="'Requirements Review/Testing'" model="vc.card.reqReviewTesting" toggle="vc.edit")
+    int-row-mark(title="'Test Cases Development'" model="vc.card.testCasesDevelopment" toggle="vc.edit")
+    int-row-mark(title="'Test Strategy Development'" model="vc.card.testStrategyDevelopment" toggle="vc.edit")
+    int-row-mark(title="'Writing Test Plan'" model="vc.card.writingTestPlan" toggle="vc.edit")
+    int-row-mark(title="'Defects Hunting'" model="vc.card.defectsHunting" toggle="vc.edit")
+    int-row-mark(title="'Test Results Analysis and Reporting'" model="vc.card.resultAnalysisAndReporting" toggle="vc.edit")
+    int-row-mark(title="'Web Services Testing'" model="vc.card.webSvcTesting" toggle="vc.edit")
+    int-row-mark(title="'Test Estimations'" model="vc.card.testEstimations" toggle="vc.edit")
+
+    int-row-head(title="'Tool Usage'")
+    int-row-mark(title="'Browser Dev Console'" model="vc.card.browserDevConsole" toggle="vc.edit")
+    int-row-mark(title="'Postman (etc.)'" model="vc.card.postman" toggle="vc.edit")
+
+    .f-buttons-wrap(layout="row" layout-align="end center")
+        button.btn.btn-primary.m-btn(ng-if="vc.edit" ng-click="vc.saveCard();") SAVE

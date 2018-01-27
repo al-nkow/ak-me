@@ -1,0 +1,18 @@
+.login-page(ng-if="!lc.hideForm")
+
+    form.form-login(ng-submit="lc.logIn()" name="loginForm")
+        label.form-block
+            .form-login__name Email
+            input.form-control(type="email" ng-model="lc.user.email" placeholder="Email" required)
+        label.form-block
+            .form-login__name Password
+            input.form-control(type="password" ng-model="lc.user.password" placeholder="Password" required)
+        label.form-block
+            .form-disc-link(ng-click="lc.showForgotPasswordModal($event)") Forgot your password?
+
+        //button.btn.btn-primary(
+        md-button.m-button.m-button_long(
+            ng-class="{'btn-block': loginForm.$invalid}"
+            type="submit"
+            ng-disabled="loginForm.$invalid"
+            ) Log in

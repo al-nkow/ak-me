@@ -1,0 +1,172 @@
+.content-head(ng-class="{'fixed md-whiteframe-2dp': vc.fixTop}")
+    current-user
+    .main-title Candidate profile
+
+    .content-head-controls(ng-if="['admin','hr','lead'].indexOf(vc.currentUser.role) !== -1")
+        div(layout="row" )
+            div(flex layout="row")
+                .flex-in(ng-if="vc.isEditing")
+                    md-button.m-button.m-button_navy.md-raised(ng-click="vc.toggleViewMode()")
+                        .m-button__icon(icon-cancel)
+                        span Edit
+                    //.icon-but.icon-but_dark(ng-click="vc.toggleViewMode()")
+                        icon-cancel
+                        span Edit
+                .flex-in(ng-if="!vc.isEditing")
+                    md-button.m-button.md-raised(ng-click="vc.toggleViewMode()")
+                        .m-button__icon(icon-edit)
+                        span Edit
+                .flex-in(ng-if="['admin','hr'].indexOf(vc.currentUser.role) !== -1 && !vc.isEditing")
+                    md-button.m-button.md-raised(ui-sref="app.card.resume.interview({type: 'hr'})")
+                        .m-button__icon(icon-interview)
+                        span Interview
+                    //.icon-but(ui-sref="app.card.resume.interview({type: 'hr'})")
+                        icon-interview
+                        span Interview
+                .flex-in(ng-if="['lead'].indexOf(vc.currentUser.role) !== -1 && !vc.isEditing")
+                    md-button.m-button.md-raised(ui-sref="app.card.resume.interview({type: 'expert'})")
+                        .m-button__icon(icon-interview)
+                        span Interview
+                    //.icon-but(ui-sref="app.card.resume.interview({type: 'expert'})")
+                        icon-interview
+                        span Interview
+                .flex-in(ng-if="(['admin','hr'].indexOf(vc.currentUser.role) !== -1) && !vc.isEditing && !vc.imported")
+                    md-button.m-button.md-raised(ng-click="vc.showInviteModal()")
+                        .m-button__icon(icon-invite)
+                        span Invite
+                    //.icon-but(ng-click="vc.showInviteModal()")
+                        icon-invite
+                        span Invite
+                .flex-in(ng-if="!vc.imported && !vc.isEditing")
+                    md-button.m-button.md-raised(ng-click="vc.printResume()")
+                        .m-button__icon(icon-print)
+                        span Print
+                    //.icon-but(ng-click="vc.printResume()")
+                        icon-print
+                        span Print
+                .flex-in(ng-if="vc.isEditing || vc.imported")
+                    md-button.m-button.md-raised(ng-click="vc.update()")
+                        span Save
+                    //.icon-but.icon-but_notitle(ng-click="vc.update()")
+                        span Save
+            div(flex="none" layout="row" layout-align="center end")
+                .flex-in(ng-if="!vc.imported && vc.resume.archive && !vc.isEditing")
+                    md-button.m-button.m-button_green.m-button_short.md-raised(ng-click="vc.toggleArchivedProp()")
+                        .m-button__icon(icon-restore)
+                    //.icon-but.icon-but_confirm.icon-but_notitle(ng-click="vc.toggleArchivedProp()")
+                        icon-restore
+                .flex-in(ng-if="!vc.imported && !vc.resume.archive && !vc.isEditing")
+                    md-button.m-button.m-button_red.m-button_short.md-raised(ng-click="vc.toggleArchivedProp()")
+                        .m-button__icon(icon-archive)
+                    //.icon-but.icon-but_alert.icon-but_notitle(ng-click="vc.toggleArchivedProp()")
+                        icon-archive
+                .flex-in(ng-if="vc.currentUser.role == 'admin' && !vc.imported && !vc.isEditing")
+                    md-button.m-button.m-button_red.m-button_short.md-raised(ng-click="vc.delete()")
+                        .m-button__icon(icon-remove)
+                    //.icon-but.icon-but_alert.icon-but_notitle(ng-click="vc.delete()")
+                        icon-remove
+
+.content-body(id="content-scroll")
+    div(layout="row")
+        .flex-in(flex)
+            resume(
+                id="print-resume"
+                resume="vc.resume"
+                user="vc.currentUser"
+                priorities="vc.priorities"
+                english-levels="vc.englishLevels"
+                states="vc.states"
+                skills="vc.skills"
+                projects="vc.projects"
+                edit="vc.isEditing"
+                toggle-view-mode="vc.toggleViewMode()"
+                )
+        div(flex="30")
+            .cp-block
+                .flex-in
+                    .cp-title Details
+                .cp-row(layout="row")
+                    .flex-in(flex="50")
+                        .cp-lable Project
+                    div(flex="50" ng-if="vc.currentUser.role === 'guest'")
+                        .flex-in.cp-value {{ vc.resume.project }}
+                    div(flex="50" ng-if="['admin','hr', 'lead'].indexOf(vc.currentUser.role) !== -1")
+                        md-select.bk-select.transparent(ng-model="vc.hrOptions.project" placeholder="N/A")
+                            md-option(ng-value="item.title" ng-repeat="item in vc.projects") {{ item.title }}
+                .cp-row(layout="row")
+                    .flex-in(flex="50")
+                        .cp-lable State
+                    //div(flex="50" ng-if="vc.currentUser.role === 'guest'")
+                        .flex-in.cp-value {{ vc.resume.stateName }}
+                    div(flex="50")
+                        //md-select.bk-select.transparent(ng-model="vc.hrOptions.state" placeholder="N/A")
+                            md-option(ng-value="item.priority" ng-repeat="item in vc.states") {{ item.title }}
+                        div(style="margin-left: -4px;")
+                            state-select(
+                                user="vc.currentUser"
+                                states="vc.states"
+                                model="vc.hrOptions.state"
+                                reason="vc.hrOptions.rejectionReason"
+                                hide-arr="true"
+                                )
+
+                .cp-row(layout="row")
+                    .flex-in(flex="50")
+                        .cp-lable Priority
+                    div(flex="50" ng-if="vc.currentUser.role === 'guest'")
+                        .flex-in.cp-value {{ vc.resume.priorityName }}
+                    div(flex="50" ng-if="['admin','hr', 'lead'].indexOf(vc.currentUser.role) !== -1")
+                        md-select.bk-select.transparent(ng-model="vc.hrOptions.candidatePriority" placeholder="N/A")
+                            md-option(ng-value="item.priority" ng-repeat="item in vc.priorities") {{ item.title }}
+                .cp-row(layout="row")
+                    .flex-in(flex="50")
+                        .cp-lable English level
+                    div(flex="50" ng-if="vc.currentUser.role === 'guest'")
+                        .flex-in.cp-value {{ vc.resume.englishLevelName }}
+                    div(flex="50" ng-if="['admin','hr', 'lead'].indexOf(vc.currentUser.role) !== -1")
+                        md-select.bk-select.transparent(ng-model="vc.hrOptions.englishLevel" placeholder="N/A")
+                            md-option(ng-value="item.priority" ng-repeat="item in vc.englishLevels") {{ item.title }}
+                .cp-row(layout="row")
+                    .flex-in(flex="50")
+                        .cp-lable Last update
+                    div(flex="50")
+                        .flex-in.cp-value {{ vc.resume.createdAt | date: 'MM/dd/yyyy' }}
+
+            .cp-block
+                .flex-in
+                    .cp-title Interviews
+
+                .cp-row(layout="row")
+                    .flex-in(flex="50")
+                        .cp-lable HR Interview
+                    div(flex="50")
+                        interview-select(model="vc.hrOptions.hrInterviewEstimate" date="vc.hrOptions.hrInterviewDate" user="vc.currentUser")
+                .cp-row(layout="row")
+                    .flex-in(flex="50")
+                        .cp-lable DEV Interview
+                    div(flex="50")
+                        interview-select(model="vc.hrOptions.devInterviewEstimate" date="vc.hrOptions.devInterviewDate" user="vc.currentUser")
+                .cp-row(layout="row")
+                    .flex-in(flex="50")
+                        .cp-lable Customer Interview
+                    div(flex="50")
+                        interview-select(model="vc.hrOptions.customerInterviewEstimate" date="vc.hrOptions.customerInterviewDate" user="vc.currentUser")
+
+            .cp-block(ng-if="['admin','hr','lead'].indexOf(vc.currentUser.role) !== -1")
+                .flex-in
+                    .cp-title Notes
+                .flex-in(ng-if="vc.hrOptions.notes" ng-click="vc.showEditNotesModal($event)") {{ vc.hrOptions.notes }}
+                .flex-in(ng-if="!vc.hrOptions.notes")
+                    .word-but(ng-click="vc.showEditNotesModal($event)") ADD NOTES
+
+            .cp-block(ng-if="['admin','hr','lead'].indexOf(vc.currentUser.role) !== -1")
+                .flex-in
+                    .cp-title Attachments
+                .flex-in
+                    .word-but(ng-click="vc.showAddFilesModal($event)")
+                        icon-attach-file.word-but__icon.file
+                        span ATTACH FILE(S)
+                .cp-files-wrap
+                    .cp-file-item(ng-repeat="item in vc.resume.attachments track by $index")
+                        a.cp-file-name(href="{{ item.link }}" target="_blank") {{ item.name }}
+                        .cp-file-delete(icon-cancel-circle ng-click="vc.deleteAttachedFile(item);")

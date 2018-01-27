@@ -1,0 +1,10 @@
+.current-user-wrap(ng-if="vc.currentUser.role !== 'guest'")
+    div(layout="row")
+        div(flex="none")
+            .cu-img-wrap
+                img.cu-img(ng-src="{{ vc.currentUser.photo || '/images/empty_photo.svg' }}" ng-click="vc.settings();")
+        div(flex layout="column" layout-align="center")
+            .cu-row.cu-name {{ vc.currentUser.name }}
+            .cu-row {{ vc.currentUser.companyName }}
+        div(flex="20" layout="column" layout-align="center")
+            md-icon.cu-icon(md-svg-src="images/icons/logout.svg" aria-label="Icon" ng-click="vc.logout();")

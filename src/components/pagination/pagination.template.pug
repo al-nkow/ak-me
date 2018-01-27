@@ -1,0 +1,7 @@
+.pagination(ng-if="vc.total > 1")
+    .pagination__total Total: {{ vc.total }}
+    .pagination__item(
+        ng-repeat="page in vc.pages"
+        ng-class="{'_active': vc.currentPage == page}"
+        ng-click="vc.goToPage(page)"
+        ) {{ page }}

@@ -1,0 +1,39 @@
+.edit-but {
+    cursor: pointer;
+    border: 2px solid #165671;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: relative;
+    &__icon {
+        width: 20px;
+        height: 20px;
+        fill: #165671;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        &_cross {
+            width: 16px;
+            height: 16px;
+        }
+    }
+    &:hover {
+        border-color: #2cabe1;
+        .edit-but__icon {
+            fill: #2cabe1;
+        }
+    }
+    &.light {
+        border: 2px solid #ffffff;
+        .edit-but__icon {
+            fill: #ffffff;
+        }
+        &:hover {
+            border-color: #94d6f3;
+            .edit-but__icon {
+                fill: #94d6f3;
+            }
+        }
+    }
+}

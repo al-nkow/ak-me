@@ -1,0 +1,14 @@
+.content-head
+    .main-title Projects
+    current-user
+
+.content-body
+    .flex-in(style="margin-bottom: 20px;")
+        md-button.m-button.md-raised(ng-click="vc.showProjectModal($event)")
+            span Add Project
+
+    .admin-row(layout="row" ng-repeat="item in vc.projects" ng-click="vc.showProjectModal($event, item)")
+        .flex-in(flex="none")
+            icon-close.admin-row__delete(ng-click="vc.showDeleteModal($event, item);")
+        .flex-in(flex layout="row" layout-align="start center")
+            .admin-row__name {{ item.title }}

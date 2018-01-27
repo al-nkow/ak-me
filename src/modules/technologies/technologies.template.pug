@@ -1,0 +1,13 @@
+.content-head
+    .main-title Technologies
+    current-user
+
+.content-body
+    .flex-in(style="margin-bottom: 20px;")
+        md-button.m-button.md-raised(ng-click="vc.showAddEditModal($event)")
+            span Add Technology
+
+    .tech-cloud
+        .tech-cloud__item(ng-repeat="item in vc.skills" ng-click="vc.showAddEditModal($event, item);")
+            span {{item.title }}
+            icon-close.tech-close(ng-click="vc.showDeleteModal($event, item);")
