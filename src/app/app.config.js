@@ -24,15 +24,5 @@ export default function routing($urlRouterProvider, $locationProvider, $statePro
 
     $urlRouterProvider.otherwise('/'); // if no route - redirect on '/' page
 
-    $stateProvider.state('app', {
-        abstract: true,
-        views: {
-            'sidebar@': {
-                template: require('../modules/sidebar/sidebar.template.pug'),
-                controller: 'SidebarController as vc'
-            }
-        }
-    });
-
 }
 

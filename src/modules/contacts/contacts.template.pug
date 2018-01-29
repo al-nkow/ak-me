@@ -1,0 +1,46 @@
+.bg-blur.bg-blur_light
+    .state-wrap
+        .page-name Contacts
+
+        div(layout="row")
+            div(flex flex-offset="60")
+
+                .contact-wrap
+                    a.contact.contact_phone(href="tel:+79095814433")
+                        .contact__icon.contact__icon_phone(icon-phone)
+                        .contact__title +7 (909) 581-4433
+                    a.contact(href="mailto:al.nkow@gmail.com")
+                        .contact__icon(icon-letter)
+                        .contact__title al.nkow@gmail.com
+                    a.contact(href="skype:al.nkow@gmail.com?call")
+                        .contact__icon.contact__icon_skype(icon-skype)
+                        .contact__title al.nkow@gmail.com
+
+                form.letter(name="mailForm" ng-submit="vc.sendMail(mailForm);")
+                    div(layout="row")
+                        div(flex)
+                            md-input-container.md-block
+                                label Name
+                                input(ng-model="vc.letter.sender" md-maxlength="30" required name="sender")
+                                div(ng-messages="mailForm.sender.$error")
+                                    div(ng-message="required") This is required!
+                                    div(ng-message="md-maxlength") The name must be less than 30 characters long!
+                    div(layout="row")
+                        div(flex)
+                            md-input-container.md-block
+                                label Email
+                                input(ng-model="vc.letter.mail" required name="mail" ng-pattern="vc.emailPattern" md-maxlength="30")
+                                div(ng-messages="mailForm.mail.$error")
+                                    div(ng-message="required") This is required!
+                                    div(ng-message="pattern") It must look like an email address!
+                                    div(ng-message="md-maxlength") The email must be less than 30 characters long!
+                    div(layout="row")
+                        div(flex)
+                            md-input-container.md-block
+                                label Message
+                                textarea(ng-model="vc.letter.message" required md-maxlength="500" name="message" rows="4" md-select-on-focus)
+                                div(ng-messages="mailForm.message.$error")
+                                    div(ng-message="required") This is required!
+                                    div(ng-message="md-maxlength") The message must be less than 500 characters long!
+                    div(layout="row")
+                        md-button.md-raised.md-primary(type="submit" ng-disabled="!mailForm.$valid") Send

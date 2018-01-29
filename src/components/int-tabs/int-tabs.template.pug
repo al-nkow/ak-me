@@ -1,7 +1,0 @@
-ul.tab
-    li
-        a.tablinks(
-        ng-repeat="item in vc.links"
-        ng-click="vc.goToLink(item.url);"
-        ng-class="{'active': vc.state == item.url}"
-        ) {{ item.name }}

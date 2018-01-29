@@ -1,21 +1,25 @@
 <!DOCTYPE html>
-<html ng-app="hrBase" lang="en">
+<html ng-app="hrBase" lang="en" ng-controller="AppController as app">
 <head>
     <!--<base href="/">-->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="images/favicon.ico" rel="icon" type="image/x-icon">
-    <title>BeKitzur HR Dashboard</title>
+    <title>AK-ME</title>
 </head>
-<body>
 
-<div class="layout">
-    <div ui-view="sidebar" class="left-sidebar"/></div>
-    <div class="main-content-wrap">
-        <div ui-view="content" class="content"/></div>
+<body ng-show="app.show">
+
+    <!--<div ng-include="'templates/menu/menu.html'" ng-controller="MenuCtrl as mc"></div>-->
+
+    <ng-container ui-view="sidebar"></ng-container>
+
+    <div class="main-wrap" ng-class="{'main-wrap_root': app.$rootScope.stateName == 'root', 'main-wrap_contacts': app.$rootScope.stateName == 'root.contacts'}">
+        <div class="vignette">
+            <div ui-view="content" class="a-content fade full-height ov-auto" id="maincontent"></div>
+        </div>
     </div>
-</div>
 
 </body>
 </html>

@@ -1,0 +1,19 @@
+md-dialog.s-dialog(aria-label="screen")
+    md-toolbar
+        .md-toolbar-tools
+            .s-dialog__head Image preview {{vc.screens[vc.current]}}
+            span(flex)
+            span.s-dialog__close(icon-close ng-click="vc.cancel()")
+
+    md-dialog-content
+        .md-dialog-content-wrap
+            md-tooltip left/right arrows, click, swipe available
+            img.s-dialog__image(
+                md-swipe-left="vc.moveBack()"
+                md-swipe-right="vc.moveFront()"
+                src="{{ vc.screens[vc.current] }}"
+                ng-click="vc.moveFront()"
+                )
+
+    //- md-dialog-actions(layout="row")
+        md-button(ng-click="vc.cancel()") Отмена
