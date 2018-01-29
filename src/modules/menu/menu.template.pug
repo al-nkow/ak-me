@@ -1,0 +1,14 @@
+.menu-but
+    .isg-hamburger(ng-click="mc.toggleRight()" ng-class="{'is-active': mc.menuactive}")
+        span Toggle Menu
+
+md-sidenav.menu.md-sidenav-right.md-whiteframe-4dp(md-component-id="right")
+    md-content(layout-padding)
+        .menu-wrap
+            .menu-item(
+                ng-repeat="item in mc.menu"
+                layout="row"
+                layout-align="center center"
+                ng-click="mc.selectMenu(item.url);"
+                )
+                .menu-item__title {{ item.name }}

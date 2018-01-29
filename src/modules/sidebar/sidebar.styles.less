@@ -1,0 +1,219 @@
+@import "../../style/variables";
+
+.spinner-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.5);
+    z-index: 1000;
+    .spinner-body {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.left-sidebar {
+    height: 100%;
+    flex:  0;
+    z-index: 2;
+}
+.main-content-wrap {
+    position: relative;
+    flex: 1;
+    background: #f5f5f5;
+}
+.sidebar-wrap {
+    overflow: hidden;
+    transition: all 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+    background-color: @blue;
+    width: 240px;
+    height: 100%;
+    box-sizing: border-box;
+    position: relative;
+    &.collapsed {
+        width: 64px;
+    }
+}
+.sb-icon-menu {
+    width: 24px;
+    height: 24px;
+}
+.sb-head {
+    height: 65px; //82px;
+}
+.sb-border {
+    position: relative;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: 5px;
+        right: 5px;
+        height: 1px;
+        background: rgba(255,255,255,0.2);
+    }
+}
+.htop {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+.sb-burger {
+    transition: all 0.2s linear;
+    left: 20px;
+    cursor: pointer;
+    &:hover {
+        opacity: 0.8;
+    }
+}
+.sb-logo {
+    left: 64px;
+    height: 26px;
+    cursor: pointer;
+}
+.sb-menu {
+    min-height: 100px;
+}
+.menu-block {
+    display: block;
+    text-decoration: none;
+    width: 240px;
+    height: 56px;
+    position: relative;
+    cursor: pointer;
+    &:before {
+        z-index: 2;
+        //transition: all 0.2s ease-out;
+        content: '';
+        width: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        background: #ffffff;
+    }
+    &:after {
+        z-index: 1;
+        content: '';
+        width: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        background: #1e9fd5; // rgba(0,0,0,0.2);
+    }
+    &.active {
+        &:before {
+            width: 5px;
+        }
+        &:after {
+            width: 100%;
+        }
+    }
+    &:hover {
+        //&:before {
+        //    width: 5px;
+        //}
+        &:after {
+            transition: all 0.2s ease-in-out;
+            width: 100%;
+        }
+    }
+}
+.menu-block-icon {
+    width: 24px;
+    height: 24px;
+    left: 20px;
+    z-index: 2;
+    fill: #ffffff;
+}
+.menu-block-label {
+    left: 64px;
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: bold;
+    z-index: 2;
+}
+.sb-title {
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #ffffff;
+    opacity: 0.7;
+    padding: 16px 10px 12px 24px;
+    &.collapsed {
+        transition: all 0.1s linear;
+        opacity: 0;
+        height: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+
+
+// =====
+.loader,
+.loader:before,
+.loader:after {
+    border-radius: 50%;
+    width: 2.5em;
+    height: 2.5em;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation: load7 1.8s infinite ease-in-out;
+    animation: load7 1.8s infinite ease-in-out;
+}
+.loader {
+    color: #05b1fc;
+    font-size: 10px;
+    margin: 80px auto;
+    position: relative;
+    text-indent: -9999em;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+}
+.loader:before,
+.loader:after {
+    content: '';
+    position: absolute;
+    top: 0;
+}
+.loader:before {
+    left: -3.5em;
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+}
+.loader:after {
+    left: 3.5em;
+}
+@-webkit-keyframes load7 {
+    0%,
+    80%,
+    100% {
+        box-shadow: 0 2.5em 0 -1.3em;
+    }
+    40% {
+        box-shadow: 0 2.5em 0 0;
+    }
+}
+@keyframes load7 {
+    0%,
+    80%,
+    100% {
+        box-shadow: 0 2.5em 0 -1.3em;
+    }
+    40% {
+        box-shadow: 0 2.5em 0 0;
+    }
+}

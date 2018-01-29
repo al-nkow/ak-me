@@ -1,0 +1,65 @@
+//.spinner-overlay(ng-if="vc.$rootScope.loading")
+    .spinner-body
+        .loader Loading...
+.sidebar-wrap.md-whiteframe-3dp(
+    ng-class="{ 'collapsed': vc.collapse }"
+    ng-if="vc.$rootScope.currentState !== 'app.login' && vc.$rootScope.currentState !== 'app.users.set-password' \
+        && vc.$rootScope.currentState !== 'app.users.reset-password' && vc.currentUser"
+    )
+
+    .sb-head.sb-border
+        md-icon.sb-burger.htop(
+            md-svg-src="images/icons/menu_white.svg"
+            class="sb-icon-menu" aria-label="Icon"
+            ng-click="vc.toggleMenu()"
+            )
+        img.sb-logo.htop(ng-src="/images/bekitzur.svg" alt="Bekitzur" ui-sref="app.dashboard")
+
+    .sb-menu(ng-class="{'sb-border': ['admin', 'hr', 'lead'].indexOf(vc.currentUser.role) !== -1}")
+
+        a.menu-block(ui-sref="app.dashboard" ui-sref-active="active")
+            md-icon.menu-block-icon.htop(md-svg-src="images/icons/dashboard_white.svg" aria-label="Icon")
+            .menu-block-label.htop Dashboard
+        a.menu-block(
+            ng-if="['admin', 'hr', 'lead'].indexOf(vc.currentUser.role) !== -1"
+            ui-sref="app.projects"
+            ui-sref-active="active"
+            )
+            md-icon.menu-block-icon.htop(md-svg-src="images/icons/projects_white.svg" aria-label="Icon")
+            .menu-block-label.htop Projects
+        a.menu-block(
+            ng-if="['admin', 'hr', 'lead'].indexOf(vc.currentUser.role) !== -1"
+            )
+            md-icon.menu-block-icon.htop(md-svg-src="images/icons/positions_shared_white.svg" aria-label="Icon")
+            .menu-block-label.htop Positions
+        a.menu-block(
+            ng-if="['admin', 'hr', 'lead'].indexOf(vc.currentUser.role) !== -1"
+            ui-sref="app.technologies"
+            ui-sref-active="active"
+            )
+            md-icon.menu-block-icon.htop(md-svg-src="images/icons/technologies_white.svg" aria-label="Icon")
+            .menu-block-label.htop Technologies
+        a.menu-block(
+            ng-if="['admin', 'hr'].indexOf(vc.currentUser.role) !== -1"
+            ui-sref="app.users.list"
+            ui-sref-active="active"
+            )
+            md-icon.menu-block-icon.htop(md-svg-src="images/icons/users_white.svg" aria-label="Icon")
+            .menu-block-label.htop Users
+        a.menu-block(
+            ng-if="['admin', 'hr'].indexOf(vc.currentUser.role) !== -1"
+            ui-sref="app.mail-templates"
+            ui-sref-active="active"
+            )
+            md-icon.menu-block-icon.htop(md-svg-src="images/icons/mailtemplates_white.svg" aria-label="Icon")
+            .menu-block-label.htop Mail templates
+
+    .sb-actions(ng-if="['admin', 'hr'].indexOf(vc.currentUser.role) !== -1")
+        .sb-title(ng-class="{ 'collapsed': vc.collapse }") Actions
+
+        a.menu-block(ui-sref="app.create-resume" ui-sref-active="active")
+            md-icon.menu-block-icon.htop(md-svg-src="images/icons/create-resume_white.svg" aria-label="Icon")
+            .menu-block-label.htop Create resume
+        a.menu-block(ui-sref="app.parse" ui-sref-active="active")
+            md-icon.menu-block-icon.htop(md-svg-src="images/icons/import-resume_white.svg" aria-label="Icon")
+            .menu-block-label.htop Import resume
