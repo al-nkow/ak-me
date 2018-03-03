@@ -40,6 +40,7 @@ import fitness   from '../modules/fitness';
 import portfolio from '../modules/portfolio';
 import sota      from '../modules/sota';
 import utmc      from '../modules/utmc';
+import hrportal  from '../modules/hrportal';
 
 let hrBase = angular.module('hrBase', [
     // App
@@ -66,7 +67,8 @@ let hrBase = angular.module('hrBase', [
     fitness,
     portfolio,
     sota,
-    utmc
+    utmc,
+    hrportal
 ]);
 
 hrBase.config(routing);
