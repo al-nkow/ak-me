@@ -1,8 +1,8 @@
-export default function routes($stateProvider, $mdThemingProvider) {
+export default function routes($stateProvider/*, $mdThemingProvider*/) {
 
-    $mdThemingProvider.theme('default')
-        .primaryPalette('blue-grey') // cyan
-        .accentPalette('deep-orange');
+    // $mdThemingProvider.theme('default')
+    //     .primaryPalette('blue-grey') // cyan
+    //     .accentPalette('deep-orange');
 
     $stateProvider.state('root.about', {
         url: 'about',
