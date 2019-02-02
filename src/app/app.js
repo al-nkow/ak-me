@@ -41,6 +41,7 @@ import portfolio from '../modules/portfolio';
 import sota      from '../modules/sota';
 import utmc      from '../modules/utmc';
 import hrportal  from '../modules/hrportal';
+import gali      from '../modules/gali';
 
 let hrBase = angular.module('hrBase', [
     // App
@@ -68,7 +69,8 @@ let hrBase = angular.module('hrBase', [
     portfolio,
     sota,
     utmc,
-    hrportal
+    hrportal,
+    gali
 ]);
 
 hrBase.config(routing);
