@@ -1,0 +1,56 @@
+.bg-blur
+    .state-wrap
+        span.back-but(icon-down ui-sref="root.portfolio")
+        div(ng-if="vc.showbut")
+            span.arr-down(icon-down)
+
+        div.work__header
+
+            div(layout="row")
+
+                div(flex="55")
+                    .page-name.page-name_nom FundSource
+
+                    br
+                    //a.project-link.project-link_dist(href="https://hr.bekitzur.com" target="_blank") hr.bekitzur.com
+
+                    .text-block.text-block_right.text-block_bottom
+                        .text-block__desc
+                            | FundSource - is a platform that allows organizations to launch crowdfunding projects
+                            | and raise capitals based on three compensation models: equity, debt, donations. Platform
+                            | concentrates on simplicity and ease of use for a broad business audience. Other key
+                            | features: real-time notifications, integration with eSignature service (HelloSign) to
+                            | support signing funding contracts, two-factor authenthication, identity and anti-money
+                            | laundering verifications.
+
+                    .text-block.text-block_right.text-block_bottom
+                        .text-block__title Role
+                        .text-block__desc Frontend developer
+
+                    .text-block.text-block_right.text-block_last
+                        .text-block__title Technologies
+                        .text-block__desc
+                            div React / Redux / Redux-Form / React Material / Webpack
+                            div NodeJS
+
+                div(flex="45")
+                    .work__header__image
+                        img(src="/images/fundsource_imac.png" alt="")
+
+            .devices
+                .devices__item.devices__item_macbook
+                    img(src="/images/fundsource_macbook.png" alt="")
+                .devices__item.devices__item_ipad
+                    img(src="/images/fundsource_ipad.png" alt="")
+                .devices__item.devices__item_iphone
+                    img(src="/images/fundsource_iphone.png" alt="")
+
+        div.screens-wrap
+            div.screens.clearfix
+                div.screens__item(
+                ng-repeat="item in vc.screens track by $index"
+                ng-click="vc.showScreen($event, $index)"
+                )
+                    img.screens__item__img.md-whiteframe-3dp(ng-src="{{ item }}")
+
+        scroll-top
