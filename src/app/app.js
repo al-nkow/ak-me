@@ -45,6 +45,7 @@ import gali      from '../modules/gali';
 import funds     from '../modules/fundsource';
 import zypmedia  from '../modules/zypmedia';
 import potolok   from '../modules/potolok';
+import prokach   from '../modules/prokach';
 
 let hrBase = angular.module('hrBase', [
     // App
@@ -76,7 +77,8 @@ let hrBase = angular.module('hrBase', [
     gali,
     funds,
     zypmedia,
-    potolok
+    potolok,
+    prokach
 ]);
 
 hrBase.config(routing);

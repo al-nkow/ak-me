@@ -9,6 +9,6 @@ import FitnessController from './fitness.controller';
 export default angular.module('hrBase.fitness', [
     uirouter,
 ])
-    .config(routing)
-    .controller('FitnessController', FitnessController)
-    .name;
+  .config(routing)
+  .controller('FitnessController', FitnessController)
+  .name;

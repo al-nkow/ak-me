@@ -1,0 +1,61 @@
+.bg-blur
+    .state-wrap
+        span.back-but(icon-down ui-sref="root.portfolio")
+        div(ng-if="vc.showbut")
+            span.arr-down(icon-down)
+
+        div.work__header
+
+            div(layout="row")
+
+                div(flex="55")
+                    .page-name.page-name_nom Proka4show
+
+                    a.project-link.project-link_dist(href="https://proka4show.ru/" target="_blank") www.proka4show.ru
+
+                    .text-block.text-block_right.text-block_bottom
+                        .text-block__desc
+                            | Responsive landing page + admin panel
+
+                    .text-block.text-block_right.text-block_bottom
+                        .text-block__title Role
+                        .text-block__desc Fullstack developer
+
+                    .text-block.text-block_right.text-block_last
+                        .text-block__title Technologies
+                        .text-block__desc
+                            div React / Redux / Redux Form / React Material
+                            div Javascript / Pug / SCSS / Webpack
+                            div NodeJS / Express / MongoDB / Passport / AWS
+
+                    .devices
+                        .devices__item.devices__item_macbook
+                            img(src="/images/prokach_macbook.png" alt="")
+                        .devices__item.devices__item_ipad
+                            img(src="/images/prokach_ipad.png" alt="")
+                        .devices__item.devices__item_iphone
+                            img(src="/images/prokach_iphone.png" alt="")
+
+                div(flex="45")
+                    .work__header__image
+                        img(src="/images/prokach_imac.png" alt="")
+
+            // Этот блок отображать для маленьких экранов (дублируется)
+            //.devices
+                .devices__item.devices__item_macbook
+                    img(src="/images/fitness_macbook.png" alt="")
+                .devices__item.devices__item_ipad
+                    img(src="/images/fitness_ipad.png" alt="")
+                .devices__item.devices__item_iphone
+                    img(src="/images/fitness_iphone.png" alt="")
+
+        div.screens-wrap
+            img.large-img.md-whiteframe-3dp(src="/images/prokach/prokach1.jpg")
+            //div.screens.clearfix
+                div.screens__item(
+                ng-repeat="item in vc.screens track by $index"
+                ng-click="vc.showScreen($event, $index)"
+                )
+                    img.screens__item__img.md-whiteframe-3dp(ng-src="{{ item }}")
+
+        scroll-top
