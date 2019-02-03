@@ -43,6 +43,8 @@ import utmc      from '../modules/utmc';
 import hrportal  from '../modules/hrportal';
 import gali      from '../modules/gali';
 import funds     from '../modules/fundsource';
+import zypmedia  from '../modules/zypmedia';
+import potolok   from '../modules/potolok';
 
 let hrBase = angular.module('hrBase', [
     // App
@@ -72,7 +74,9 @@ let hrBase = angular.module('hrBase', [
     utmc,
     hrportal,
     gali,
-    funds
+    funds,
+    zypmedia,
+    potolok
 ]);
 
 hrBase.config(routing);

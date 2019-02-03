@@ -1,0 +1,57 @@
+.bg-blur
+    .state-wrap
+        span.back-but(icon-down ui-sref="root.portfolio")
+        div(ng-if="vc.showbut")
+            span.arr-down(icon-down)
+
+        div.work__header
+
+            div(layout="row")
+
+                div(flex="55")
+                    .page-name.page-name_nom ZypMedia
+
+                    a.project-link.project-link_dist(href="http://www.zypmedia.com" target="_blank") www.zypmedia.com
+
+                    .text-block.text-block_right.text-block_bottom
+                        .text-block__desc
+                            | React-based front-end development of the Web Application which shows real-time reports
+                            | for online marketing campaigns run on the ZypMedia advertising platform. ZypMedia is a
+                            | San Francisco based ad tech company focused on display and video online ads for local
+                            | businesses across US
+
+                    .text-block.text-block_right.text-block_bottom
+                        .text-block__title Role
+                        .text-block__desc Fullstack developer
+
+                    .text-block.text-block_right.text-block_last
+                        .text-block__title Technologies
+                        .text-block__desc
+                            div React / Redux / Redux-Saga / Reselect / D3.js / Victory / Immutable.js / Ant&nbsp;Design
+                            div NodeJS / PostgreSQL / AWS
+
+                div(flex="45")
+                    .work__header__image
+                        img(src="/images/zypmedia_imac.png" alt="")
+
+            .devices
+                .devices__item.devices__item_macbook
+                    img(src="/images/zypmedia_macbook.png" alt="")
+                .devices__item.devices__item_ipad
+                    img(src="/images/zypmedia_ipad.png" alt="")
+                .devices__item.devices__item_iphone
+                    img(src="/images/zypmedia_iphone.png" alt="")
+
+        //img.large-img.md-whiteframe-3dp(ng-repeat="item in vc.screens track by $index" ng-src="{{ item }}")
+        img.large-img.md-whiteframe-3dp(src="images/zypmedia/zypmedia2.jpg")
+        img.large-img.md-whiteframe-3dp(src="images/zypmedia/zypmedia1.jpg")
+
+        div.screens-wrap
+            div.screens.clearfix
+                div.screens__item(
+                ng-repeat="item in vc.screens track by $index"
+                ng-click="vc.showScreen($event, $index)"
+                )
+                    img.screens__item__img.md-whiteframe-3dp(ng-src="{{ item }}")
+
+        scroll-top
