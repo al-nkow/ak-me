@@ -57,6 +57,16 @@ body
 	&_contacts
 		background-image url('/images/contacts.jpg')
 		background-size cover
+	@media screen and (max-width: 768px)
+		background-position: -182px center;
+	@media screen and (max-width: 498px)
+		background-position: -186px center;
+	@media screen and (max-width: 498px)
+		background-position: -178px center;
+
+	/* Portrait iPadPRO */
+	@media only screen and (min-width: 1024px) and (max-height: 1366px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1.5)
+		background-position: -234px center;
 	
 .vignette
 	position absolute
