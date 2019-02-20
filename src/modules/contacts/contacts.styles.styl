@@ -37,4 +37,18 @@
             height 24px
 
 .contact-wrap
+    padding-top: 60px
     margin-bottom 60px
+    padding-left: 60%
+    width: 100%;
+    @media screen and (max-width: 700px)
+        padding-left: 50%
+    @media screen and (max-width: 556px)
+        padding-left: 0
+        width: 260px
+        margin-left: auto
+        margin-right: auto
+
+    // iphone 5 portrait
+    @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (device-aspect-ratio: 40/71)
+        padding-top: 10px
