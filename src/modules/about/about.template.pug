@@ -4,7 +4,7 @@
 
         div.about-main(layout="column" layout-gt-sm="row")
 
-            div(flex="100" flex-gt-sm="50")
+            div.about-photo-container
                 img.about-main__image.md-whiteframe-2dp(src="/images/about.jpg" alt="")
 
             div(flex)
@@ -37,22 +37,22 @@
                         .text-block__desc.text-block__desc_dist
                             span(ng-repeat="item in vc.skills.develope")
                                 span(ng-bind="item + ' '")
-                                span(ng-if="!$last") /
+                                span(ng-if="!$last") /&nbsp;
                         .text-block__desc.text-block__desc_dist
                             span(ng-repeat="item in vc.skills.cms")
                                 span(ng-bind="item + ' '")
-                                span(ng-if="!$last") /
+                                span(ng-if="!$last") /&nbsp;
                         .text-block__desc
                             span(ng-repeat="item in vc.skills.design")
                                 span(ng-bind="item + ' '")
-                                span(ng-if="!$last") /
+                                span(ng-if="!$last") /&nbsp;
 
                     .text-block
                         .text-block__title.text-block__title_dist Work experience
-                        .job-block(layout="row" ng-repeat="item in vc.experience")
-                            div(flex="30")
+                        .job-block(layout="column" layout-gt-xs="row" ng-repeat="item in vc.experience")
+                            div(flex="100" flex-gt-xs="30")
                                 div {{ item.date }}
-                            div(flex="70")
+                            div(flex="100" flex-gt-xs="70")
                                 div.job-block__name {{ item.name }}
                                 div {{ item.unit }}
                                 a.project-link(
@@ -63,10 +63,10 @@
 
                     .text-block
                         .text-block__title.text-block__title_dist Education
-                        .job-block(layout="row" ng-repeat="item in vc.education")
-                            div(flex="30")
+                        .job-block(layout="column" layout-gt-xs="row" ng-repeat="item in vc.education")
+                            div(flex="100" flex-gt-xs="30")
                                 div {{ item.date }}
-                            div(flex="70")
+                            div(flex="100" flex-gt-xs="70")
                                 div.job-block__name {{ item.name }}
                                 div {{ item.unit }}
                                 a.project-link(

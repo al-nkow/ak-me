@@ -138,7 +138,7 @@ input::-ms-clear
 	margin 0 auto
 	padding 45px
 	min-height 100%
-	@media screen and (max-width: 411px)
+	@media screen and (max-width: 414px)
 		padding: 20px
 	
 .content-wrap
@@ -215,6 +215,8 @@ h2
 		&_macbook
 			margin-left -30px
 			margin-right 35px
+	@media screen and (max-width: 600px)
+		display: none
 			
 .s-dialog
 	max-height 90%
@@ -254,10 +256,14 @@ md-menu-content
 .text-block
 	&_right
 		padding-right 20px
+		@media screen and (max-width: 600px)
+			padding-right: 0
 	&_bottom
 		margin-bottom 40px
 	&_last
 		margin-bottom 60px
+		@media screen and (max-width: 600px)
+			margin-bottom: 0
 	&__title
 		font-family HelveticaNeueMedium, Helvetica, sans-serif
 		font-size 20px
@@ -299,4 +305,29 @@ md-toast
 	transform rotate(90deg)
 	&:hover
 		opacity 0.5
+	@media screen and (max-width: 600px)
+		top: 20px
+		left: 14px
 
+.mob-view-imac
+	display: none
+	width: 100%
+	@media screen and (max-width: 600px)
+		display: block
+
+.hide-xs
+	@media screen and (max-width: 600px)
+		display: none;
+
+.arr-down
+	position: fixed;
+	bottom: 30px;
+	right: 50px;
+	opacity: .3;
+	transition: all .2s ease-in-out;
+	width: 40px;
+	height: 40px;
+	fill: #fff;
+	animation: movedown 2s infinite;
+	@media screen and (max-width: 600px)
+		display: none
