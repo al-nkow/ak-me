@@ -9,13 +9,22 @@
     <title>AK-ME</title>
 </head>
 
-<body ng-show="app.show">
+<body
+    ng-show="app.show"
+    md-swipe-left="app.onSwipeLeft($event, $target)"
+    md-swipe-right="app.onSwipeRight($event, $target)"
+>
 
     <!--<div ng-include="'templates/menu/menu.html'" ng-controller="MenuCtrl as mc"></div>-->
 
     <ng-container ui-view="sidebar"></ng-container>
 
-    <div class="main-wrap" ng-class="{'main-wrap_root': app.$rootScope.stateName == 'root', 'main-wrap_contacts': app.$rootScope.stateName == 'root.contacts'}">
+    <div class="main-wrap"
+         ng-class="{
+            'main-wrap_root': app.$rootScope.stateName == 'root',
+            'main-wrap_contacts': app.$rootScope.stateName == 'root.contacts'
+        }"
+    >
         <div class="vignette">
             <div ui-view="content" class="a-content fade full-height ov-auto" id="maincontent"></div>
         </div>

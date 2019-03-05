@@ -1,7 +1,6 @@
 export default class MenuController {
 
     constructor($state, $timeout, $scope, $rootScope, $mdSidenav) {
-
         this.$mdSidenav = $mdSidenav;
         this.$rootScope = $rootScope;
         this.$scope     = $scope;
@@ -25,6 +24,14 @@ export default class MenuController {
                 url: 'root.contacts'
             }
         ];
+
+        $scope.$on('OPEN_MENU', () => {
+            if (!this.menuactive) this.toggleRight();
+        });
+
+        $scope.$on('CLOSE_MENU', () => {
+            if (this.menuactive) this.toggleRight();
+        });
     }
 
     toggleRight() {

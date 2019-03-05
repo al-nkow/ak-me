@@ -1,5 +1,4 @@
 export default class AppController {
-
     constructor($scope, $rootScope, $window) {
         this.$rootScope = $rootScope;
         this.show = false;
@@ -9,4 +8,11 @@ export default class AppController {
         });
     }
 
+    onSwipeLeft(event, target) {
+        this.$rootScope.$broadcast('OPEN_MENU');
+    }
+
+    onSwipeRight(event, target) {
+        this.$rootScope.$broadcast('CLOSE_MENU');
+    }
 }
