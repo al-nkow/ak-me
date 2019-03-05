@@ -47,6 +47,8 @@ import funds     from '../modules/fundsource';
 import zypmedia  from '../modules/zypmedia';
 import potolok   from '../modules/potolok';
 import prokach   from '../modules/prokach';
+import traffic   from '../modules/trafficstars';
+import runative  from '../modules/runative';
 
 let hrBase = angular.module('hrBase', [
     // App
@@ -80,7 +82,9 @@ let hrBase = angular.module('hrBase', [
     funds,
     zypmedia,
     potolok,
-    prokach
+    prokach,
+    traffic,
+    runative
 ]);
 
 hrBase.config(routing);
