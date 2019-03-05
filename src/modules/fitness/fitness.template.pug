@@ -6,16 +6,20 @@
 
         div.work__header
 
-            div(layout="row")
-
+            div(layout="column" layout-gt-xs="row")
                 div(flex="55")
                     .page-name.page-name_nom Fitness
-
                     a.project-link.project-link_dist(href="http://fitness.ak-me.ru/" target="_blank") www.fitness.ak-me.ru
+
+                    img.mob-view-imac(src="/images/fitness_imac.png" alt="")
 
                     .text-block.text-block_right.text-block_bottom
                         .text-block__desc
                             | Responsive WordPress fitness theme designed and developed specially for gym and fitness trainer websites.
+
+                    .text-block.text-block_right.text-block_bottom
+                        .text-block__title When
+                        .text-block__desc 2016
 
                     .text-block.text-block_right.text-block_bottom
                         .text-block__title Role
@@ -27,7 +31,7 @@
                             div Javascript / PHP / Pug / Stylus / Gulp
                             div Wordpress
 
-                    .devices
+                    .devices.devices_large
                         .devices__item.devices__item_macbook
                             img(src="/images/fitness_macbook.png" alt="")
                         .devices__item.devices__item_ipad
@@ -35,12 +39,11 @@
                         .devices__item.devices__item_iphone
                             img(src="/images/fitness_iphone.png" alt="")
 
-                div(flex="45")
+                div.hide-xs(flex="45")
                     .work__header__image
                         img(src="/images/fitness_imac.png" alt="")
 
-            // Этот блок отображать для маленьких экранов (дублируется)
-            //.devices
+            .devices.devices_landing
                 .devices__item.devices__item_macbook
                     img(src="/images/fitness_macbook.png" alt="")
                 .devices__item.devices__item_ipad
@@ -50,11 +53,5 @@
 
         div.screens-wrap
             img.large-img.md-whiteframe-3dp(ng-repeat="item in vc.screens track by $index" ng-src="{{ item }}")
-            //div.screens.clearfix
-                div.screens__item(
-                ng-repeat="item in vc.screens track by $index"
-                ng-click="vc.showScreen($event, $index)"
-                )
-                    img.screens__item__img.md-whiteframe-3dp(ng-src="{{ item }}")
 
         scroll-top

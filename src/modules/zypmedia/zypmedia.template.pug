@@ -6,12 +6,14 @@
 
         div.work__header
 
-            div(layout="row")
+            div(layout="column" layout-gt-xs="row")
 
                 div(flex="55")
                     .page-name.page-name_nom ZypMedia
 
                     a.project-link.project-link_dist(href="http://www.zypmedia.com" target="_blank") www.zypmedia.com
+
+                    img.mob-view-imac(src="/images/zypmedia_imac.png" alt="")
 
                     .text-block.text-block_right.text-block_bottom
                         .text-block__desc
@@ -24,13 +26,17 @@
                         .text-block__title Role
                         .text-block__desc Fullstack developer
 
+                    .text-block.text-block_right.text-block_bottom
+                        .text-block__title When
+                        .text-block__desc 2018
+
                     .text-block.text-block_right.text-block_last
                         .text-block__title Technologies
                         .text-block__desc
                             div React / Redux / Redux-Saga / Reselect / D3.js / Victory / Immutable.js / Ant&nbsp;Design
                             div NodeJS / PostgreSQL / AWS
 
-                div(flex="45")
+                div.hide-xs(flex="45")
                     .work__header__image
                         img(src="/images/zypmedia_imac.png" alt="")
 

@@ -6,7 +6,7 @@
 
         div.work__header
 
-            div(layout="row")
+            div(layout="column" layout-gt-xs="row")
 
                 div(flex="55")
                     .page-name.page-name_nom UTMC
@@ -15,6 +15,8 @@
                         href="https://bekitzur.com/project/labor-insurance-claims-processing-system/"
                         target="_blank"
                         ) description
+
+                    img.mob-view-imac(src="/images/utmc_imac.png" alt="")
 
                     .text-block.text-block_right.text-block_bottom
                         .text-block__desc
@@ -30,13 +32,17 @@
                         .text-block__title Role
                         .text-block__desc Frontend developer
 
+                    .text-block.text-block_right.text-block_bottom
+                        .text-block__title When
+                        .text-block__desc 2017
+
                     .text-block.text-block_right.text-block_last
                         .text-block__title Technologies
                         .text-block__desc
                             div Angular 4 / RxJS / Javascript / PUG / SCSS / Webpack
                             div Java / Jaxb / Spring / PostgreSQL
 
-                div(flex="45")
+                div.hide-xs(flex="45")
                     .work__header__image
                         img(src="/images/utmc_imac.png" alt="")
 

@@ -2,8 +2,9 @@ import ScreensModalController from '../../components/screens-modal/screens-modal
 
 export default class FundSourceController {
 
-  constructor($mdDialog, $timeout) {
+  constructor($mdDialog, $timeout, ScreenSize) {
     this.$mdDialog = $mdDialog;
+    this.ScreenSize = ScreenSize;
 
     this.screens = [
       '/images/fundsource/fundsource1.jpg',
@@ -38,6 +39,9 @@ export default class FundSourceController {
   showScreen(ev, index) {
 
     ev.stopPropagation();
+
+    const { x } = this.ScreenSize.get();
+    if (x <= 600) return;
 
     this.$mdDialog.show({
       controller: ScreensModalController,

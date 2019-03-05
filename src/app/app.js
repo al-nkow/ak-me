@@ -22,7 +22,8 @@ import '../style/fonts.styl';
 import '../style/main.styl';
 
 // Services
-import amToast   from '../services/toast-service';
+import amToast    from '../services/toast-service';
+import screenSize from '../services/screen-size';
 
 // Components
 import scrollTop from '../components/scroll-top';
@@ -57,6 +58,7 @@ let hrBase = angular.module('hrBase', [
     ngAria,
     // Services
     amToast,
+    screenSize,
     // Components
     scrollTop,
     // Directives

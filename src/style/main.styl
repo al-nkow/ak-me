@@ -215,9 +215,16 @@ h2
 		&_macbook
 			margin-left -30px
 			margin-right 35px
-	@media screen and (max-width: 600px)
+	&_landing
 		display: none
-			
+		@media screen and (max-width: 1220px)
+			display: block
+	&_large
+		@media screen and (max-width: 1220px)
+			display none
+	@media screen and (max-width: 650px)
+		display: none
+
 .s-dialog
 	max-height 90%
 	&__close
@@ -291,6 +298,8 @@ md-toast
 	border-radius 4px
 	max-width 800px
 	width: 100%
+	@media screen and (max-width: 600px)
+		margin: 50px auto
 
 .back-but
 	cursor pointer

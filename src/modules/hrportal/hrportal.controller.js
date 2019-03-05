@@ -2,8 +2,9 @@ import ScreensModalController from '../../components/screens-modal/screens-modal
 
 export default class HRPortalController {
 
-    constructor($mdDialog, $timeout) {
+    constructor($mdDialog, $timeout, ScreenSize) {
         this.$mdDialog = $mdDialog;
+        this.ScreenSize = ScreenSize;
 
         this.screens = [
             '/images/hrportal/hrp20.jpg',
@@ -49,8 +50,10 @@ export default class HRPortalController {
     }
 
     showScreen(ev, index) {
-
         ev.stopPropagation();
+
+        const { x } = this.ScreenSize.get();
+        if (x <= 600) return;
 
         this.$mdDialog.show({
             controller: ScreensModalController,

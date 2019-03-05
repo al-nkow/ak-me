@@ -6,12 +6,14 @@
 
         div.work__header
 
-            div(layout="row")
+            div(layout="column" layout-gt-xs="row")
 
                 div(flex="55")
                     .page-name.page-name_nom HR Portal
 
                     a.project-link.project-link_dist(href="https://hr.bekitzur.com" target="_blank") hr.bekitzur.com
+
+                    img.mob-view-imac(src="/images/hrportal_imac.png" alt="")
 
                     .text-block.text-block_right.text-block_bottom
                         .text-block__desc
@@ -22,6 +24,10 @@
                     .text-block.text-block_right.text-block_bottom
                         .text-block__title Role
                         .text-block__desc Fullstack developer
+
+                    .text-block.text-block_right.text-block_bottom
+                        .text-block__title When
+                        .text-block__desc 2017 - 2018
 
                     .text-block.text-block_right.text-block_last
                         .text-block__title Technologies v2
@@ -34,7 +40,7 @@
                             div AngularJS / Javascript / PUG / LESS / Webpack
                             div NodeJS / Express / MongoDB / Passport / AWS
 
-                div(flex="45")
+                div.hide-xs(flex="45")
                     .work__header__image
                         img(src="/images/hrportal_imac.png" alt="")
 

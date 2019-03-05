@@ -6,12 +6,14 @@
 
         div.work__header
 
-            div(layout="row")
+            div(layout="column" layout-gt-xs="row")
 
                 div(flex="55")
                     .page-name.page-name_nom Potolok
 
                     a.project-link.project-link_dist(href="http://всепотолок.рф" target="_blank") www.всепотолок.рф
+
+                    img.mob-view-imac(src="/images/potolok_imac.png" alt="")
 
                     .text-block.text-block_right.text-block_bottom
                         .text-block__desc
@@ -21,12 +23,16 @@
                         .text-block__title Role
                         .text-block__desc Web developer / designer
 
+                    .text-block.text-block_right.text-block_bottom
+                        .text-block__title When
+                        .text-block__desc 2018
+
                     .text-block.text-block_right.text-block_last
                         .text-block__title Technologies
                         .text-block__desc
                             div Javascript / Pug / SCSS / Webpack
 
-                    .devices
+                    .devices.devices_large
                         .devices__item.devices__item_macbook
                             img(src="/images/potolok_macbook.png" alt="")
                         .devices__item.devices__item_ipad
@@ -34,9 +40,17 @@
                         .devices__item.devices__item_iphone
                             img(src="/images/potolok_iphone.png" alt="")
 
-                div(flex="45")
+                div.hide-xs(flex="45")
                     .work__header__image
                         img(src="/images/potolok_imac.png" alt="")
+
+            .devices.devices_landing
+                .devices__item.devices__item_macbook
+                    img(src="/images/potolok_macbook.png" alt="")
+                .devices__item.devices__item_ipad
+                    img(src="/images/potolok_ipad.png" alt="")
+                .devices__item.devices__item_iphone
+                    img(src="/images/potolok_iphone.png" alt="")
 
         div.screens-wrap
             img.large-img.md-whiteframe-3dp(src="/images/potolok/potolok1.jpg")

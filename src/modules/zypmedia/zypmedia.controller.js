@@ -2,8 +2,9 @@ import ScreensModalController from '../../components/screens-modal/screens-modal
 
 export default class ZypmediaController {
 
-  constructor($mdDialog, $timeout) {
+  constructor($mdDialog, $timeout, ScreenSize) {
     this.$mdDialog = $mdDialog;
+    this.ScreenSize = ScreenSize;
 
     this.screens = [
       '/images/zypmedia/zypmedia3.jpg',
@@ -30,8 +31,10 @@ export default class ZypmediaController {
   }
 
   showScreen(ev, index) {
-
     ev.stopPropagation();
+
+    const { x } = this.ScreenSize.get();
+    if (x <= 600) return;
 
     this.$mdDialog.show({
       controller: ScreensModalController,

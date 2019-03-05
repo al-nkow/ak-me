@@ -4,12 +4,14 @@
 
         div.work__header
 
-            div(layout="row")
+            div(layout="column" layout-gt-xs="row")
 
                 div(flex="55")
                     .page-name.page-name_nom GALI HEALTH
 
                     a.project-link.project-link_dist(href="https://galihealth.com" target="_blank") www.galihealth.com
+
+                    img.mob-view-imac(src="/images/gali_imac.png" alt="")
 
                     .text-block.text-block_right.text-block_bottom
                         .text-block__desc
@@ -23,13 +25,17 @@
                         .text-block__title Role
                         .text-block__desc Frontend developer
 
+                    .text-block.text-block_right.text-block_bottom
+                        .text-block__title When
+                        .text-block__desc 2018
+
                     .text-block.text-block_right.text-block_last
                         .text-block__title Technologies
                         .text-block__desc
                             div Vue.js / Vuex / SCSS / Webpack
                             div NodeJS
 
-                div(flex="45")
+                div.hide-xs(flex="45")
                     .work__header__image
                         img(src="/images/gali_imac.png" alt="")
 
