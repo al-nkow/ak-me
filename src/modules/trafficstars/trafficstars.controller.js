@@ -7,10 +7,13 @@ export default class TrafficstarsController {
     this.ScreenSize = ScreenSize;
 
     this.screens = [
-      '/images/sota/sota0.jpg',
-      '/images/sota/sota1.jpg',
-      '/images/sota/sota3.jpg',
-      '/images/sota/sota4.jpg',
+      '/images/trafficstars/trafficstars1.jpg',
+      '/images/trafficstars/trafficstars2.jpg',
+      '/images/trafficstars/trafficstars3.jpg',
+      '/images/trafficstars/trafficstars4.jpg',
+      '/images/trafficstars/trafficstars5.jpg',
+      '/images/trafficstars/trafficstars6.jpg',
+      '/images/trafficstars/trafficstars7.jpg',
     ];
 
     this.wrap = angular.element(document.querySelector('#maincontent'));

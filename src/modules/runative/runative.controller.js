@@ -7,10 +7,19 @@ export default class RunativeController {
     this.ScreenSize = ScreenSize;
 
     this.screens = [
-      '/images/sota/sota0.jpg',
-      '/images/sota/sota1.jpg',
-      '/images/sota/sota3.jpg',
-      '/images/sota/sota4.jpg',
+      '/images/runative/runative3.jpg',
+      '/images/runative/runative4.jpg',
+      '/images/runative/runative2.jpg',
+      '/images/runative/runative1.jpg',
+      '/images/runative/runative5.jpg',
+      '/images/runative/runative6.jpg',
+      '/images/runative/runative7.jpg',
+      '/images/runative/runative8.jpg',
+      '/images/runative/runative9.jpg',
+      '/images/runative/runative10.jpg',
+      '/images/runative/runative11.jpg',
+      '/images/runative/runative12.jpg',
+      '/images/runative/runative13.jpg',
     ];
 
     this.wrap = angular.element(document.querySelector('#maincontent'));
