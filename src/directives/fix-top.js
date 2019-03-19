@@ -6,9 +6,7 @@ export default angular.module('directives.fix-top', [])
             link: function (scope, element, attrs) {
                 let topClass = attrs.setClassWhenAtTop,
                     offsetTop = element.offset().top;
-                // console.log($win.scrollTop());
-                // console.log(offsetTop);
-                $win.on('scroll', function (e) {
+                $win.on('scroll', function () {
                     if ($win.scrollTop() >= offsetTop) {
                         element.addClass(topClass);
                     } else {
