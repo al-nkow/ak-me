@@ -4,109 +4,19 @@
 
     .portfolio.clearfix
 
-        .float-block
-            .portfolio__item.md-whiteframe-3dp(ui-sref="root.portfolio.sota")
+        .float-block(ng-repeat="project in vc.projects")
+            .portfolio__item.md-whiteframe-3dp(ui-sref="{{project.sref}}")
                 .dimmer
                 .eye(icon-eye)
-                img.portfolio__item__img(src="/images/bgsota.jpg" alt="")
-                .portfolio__item__desc
+                img.portfolio__item__img(ng-src="{{project.imgUrl}}" alt="")
+                .portfolio__item__desc(ng-if="project.desc")
                     .sota
                         div(layout="row")
                             div(flex="none" layout="row" layout-align="start center")
-                                .sota__logo
-                                    img(src="/images/sota-logo.png" alt="")
+                                .sota__logo(ng-if="project.desc.logo")
+                                    img(ng-src="{{project.desc.logo}}" alt="")
                             div(flex layout="row" layout-align="start center")
                                 .flex-in
                                     .sota__title
-                                        .sota__title__head SOTA
-                                        .sota__title__small Интерактивный контроль<br/> строительства
-
-        .float-block
-            .portfolio__item.md-whiteframe-3dp(ui-sref="root.portfolio.fitness")
-                .dimmer
-                .eye(icon-eye)
-                img.portfolio__item__img(src="/images/bgfitness.jpg" alt="")
-
-        .float-block
-            .portfolio__item.md-whiteframe-3dp(ui-sref="root.portfolio.utmc")
-                .dimmer
-                .eye(icon-eye)
-                img.portfolio__item__img(src="/images/bgutmc2.jpg" alt="")
-                .portfolio__item__desc
-                    .sota
-                        div(layout="row")
-                            //div(flex="none" layout="row" layout-align="start center")
-                                .sota__logo
-                                    //img(src="/images/utmc_logo.png" alt="")
-                            div(flex layout="row" layout-align="start center")
-                                .flex-in
-                                    .sota__title
-                                        .sota__title__head UTMC
-                                        .sota__title__small Unemployment Tax Management Corporation
-
-        .float-block
-            .portfolio__item.md-whiteframe-3dp(ui-sref="root.portfolio.hrportal")
-                .dimmer
-                .eye(icon-eye)
-                img.portfolio__item__img(src="/images/bghr.jpg" alt="")
-
-        .float-block
-            .portfolio__item.md-whiteframe-3dp(ui-sref="root.portfolio.gali")
-                .dimmer
-                .eye(icon-eye)
-                img.portfolio__item__img(src="/images/bggali.jpg" alt="")
-
-        .float-block
-            .portfolio__item.md-whiteframe-3dp(ui-sref="root.portfolio.fundsource")
-                .dimmer
-                .eye(icon-eye)
-                img.portfolio__item__img(src="/images/bgfundsource.jpg" alt="")
-                .portfolio__item__desc.portfolio__item__desc_dark
-                    .sota
-                        div(layout="row")
-                            //div(flex="none" layout="row" layout-align="start center")
-                                .sota__logo
-                                    //img(src="/images/utmc_logo.png" alt="")
-                            div(flex layout="row" layout-align="start center")
-                                .flex-in
-                                    .sota__title
-                                        .sota__title__head FundSource
-                                        .sota__title__small Crowdfunding platform
-
-        .float-block
-            .portfolio__item.md-whiteframe-3dp(ui-sref="root.portfolio.zypmedia")
-                .dimmer
-                .eye(icon-eye)
-                img.portfolio__item__img(src="/images/bgzypmedia.jpg" alt="")
-                .portfolio__item__desc
-                    .sota
-                        div(layout="row")
-                            div(flex layout="row" layout-align="start center")
-                                .flex-in
-                                    .sota__title
-                                        .sota__title__head ZypMedia
-                                        .sota__title__small The first local-focused, full-stack, omnichannel platform
-
-        .float-block
-            .portfolio__item.md-whiteframe-3dp(ui-sref="root.portfolio.potolok")
-                .dimmer
-                .eye(icon-eye)
-                img.portfolio__item__img(src="/images/bgpotolok.jpg" alt="")
-
-        .float-block
-            .portfolio__item.md-whiteframe-3dp(ui-sref="root.portfolio.prokach")
-                .dimmer
-                .eye(icon-eye)
-                img.portfolio__item__img(src="/images/bgprokach.jpg" alt="")
-
-        .float-block
-            .portfolio__item.md-whiteframe-3dp(ui-sref="root.portfolio.trafficstars")
-                .dimmer
-                .eye(icon-eye)
-                img.portfolio__item__img(src="/images/bgtrafficstars.jpg" alt="")
-
-        .float-block
-            .portfolio__item.md-whiteframe-3dp(ui-sref="root.portfolio.runative")
-                .dimmer
-                .eye(icon-eye)
-                img.portfolio__item__img(src="/images/bgrunative.jpg" alt="")
+                                        .sota__title__head {{ project.desc.head}}
+                                        .sota__title__small {{ project.desc.title }}
