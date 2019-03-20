@@ -1,10 +1,8 @@
 .state-wrap
-
     .page-name Portfolio
-
     .portfolio.clearfix
 
-        .float-block(ng-repeat="project in vc.projects")
+        .float-block(ng-repeat="project in vc.projects | orderBy: 'order'")
             .portfolio__item.md-whiteframe-3dp(ui-sref="{{project.sref}}")
                 .dimmer
                 .eye(icon-eye)
