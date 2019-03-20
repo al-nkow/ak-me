@@ -7,9 +7,9 @@ import ZypmediaController from './zypmedia.controller';
 import ScreenSize from '../../services/screen-size';
 
 export default angular.module('hrBase.zypmedia', [
-  uirouter,
-  ScreenSize
+    uirouter,
+    ScreenSize
 ])
-  .config(routing)
-  .controller('ZypmediaController', ZypmediaController)
-  .name;
+    .config(routing)
+    .controller('ZypmediaController', ZypmediaController)
+    .name;

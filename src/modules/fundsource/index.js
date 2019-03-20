@@ -7,9 +7,9 @@ import FundSourceController from './fundsource.controller';
 import ScreenSize from '../../services/screen-size';
 
 export default angular.module('hrBase.fundsource', [
-  uirouter,
-  ScreenSize
+    uirouter,
+    ScreenSize
 ])
-  .config(routing)
-  .controller('FundSourceController', FundSourceController)
-  .name;
+    .config(routing)
+    .controller('FundSourceController', FundSourceController)
+    .name;

@@ -5,8 +5,8 @@ import routing from './gali.routes';
 import GaliController from './gali.controller';
 
 export default angular.module('hrBase.gali', [
-  uirouter,
+   uirouter,
 ])
-  .config(routing)
-  .controller('GaliController', GaliController)
-  .name;
+    .config(routing)
+    .controller('GaliController', GaliController)
+    .name;

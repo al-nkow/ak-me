@@ -7,9 +7,9 @@ import RunativeController from './runative.controller';
 import ScreenSize from '../../services/screen-size';
 
 export default angular.module('hrBase.runative', [
-  uirouter,
-  ScreenSize
+    uirouter,
+    ScreenSize
 ])
-  .config(routing)
-  .controller('RunativeController', RunativeController)
-  .name;
+    .config(routing)
+    .controller('RunativeController', RunativeController)
+    .name;

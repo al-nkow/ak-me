@@ -7,9 +7,9 @@ import TrafficstarsController from './trafficstars.controller';
 import ScreenSize from '../../services/screen-size';
 
 export default angular.module('hrBase.trafficstars', [
-  uirouter,
-  ScreenSize
+    uirouter,
+    ScreenSize
 ])
-  .config(routing)
-  .controller('TrafficstarsController', TrafficstarsController)
-  .name;
+    .config(routing)
+    .controller('TrafficstarsController', TrafficstarsController)
+    .name;
