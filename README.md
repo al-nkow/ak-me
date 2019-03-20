@@ -7,5 +7,4 @@ Portfolio site
 ````
 
 #### TODO:
-1. Add PRELOADER
 9. remove # from url

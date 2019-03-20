@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="hrBase" lang="en" ng-controller="AppController as app">
+<html ng-app="hrBase" lang="en" ng-cloak ng-controller="AppController as app">
 <head>
     <!--<base href="/">-->
     <meta charset="utf-8">
@@ -14,8 +14,57 @@
     md-swipe-left="app.onSwipeLeft($event, $target)"
     md-swipe-right="app.onSwipeRight($event, $target)"
 >
+<style>
+    .preloader-wrap {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1000;
+        background: #45708e;
+        background: -moz-linear-gradient(top, #45708e 0%, #2d5069 100%);
+        background: -webkit-linear-gradient(top, #45708e 0%,#2d5069 100%);
+        background: linear-gradient(to bottom, #45708e 0%,#2d5069 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45708e', endColorstr='#2d5069',GradientType=0 );
+    }
+    .spinner {
+        width: 80px;
+        height: 80px;
+        background-color: #c5e5fb;
+        border-radius: 2px;
+        margin: 20% auto;
+        -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+        animation: sk-rotateplane 1.2s infinite ease-in-out;
+    }
+
+    @-webkit-keyframes sk-rotateplane {
+        0% { -webkit-transform: perspective(120px) }
+        50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+        100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+    }
+
+    @keyframes sk-rotateplane {
+        0% {
+            transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+            -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg)
+        }
+        50% {
+            transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+            -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg)
+        }
+        100% {
+            transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+            -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+        }
+    }
+</style>
 
     <!--<div ng-include="'templates/menu/menu.html'" ng-controller="MenuCtrl as mc"></div>-->
+
+    <div id="preloader" class="preloader-wrap">
+        <div class="spinner"></div>
+    </div>
 
     <ng-container ui-view="sidebar"></ng-container>
 
@@ -29,6 +78,21 @@
             <div ui-view="content" class="a-content fade full-height ov-auto" id="maincontent"></div>
         </div>
     </div>
+
+<!--Preload images-->
+<img src="/images/bgclear.jpg" style="position: absolute; top: -1000px; left: -1000px; width: 0; height: 0; opacity: 0;">
+<img src="/images/contacts.jpg" style="position: absolute; top: -1000px; left: -1000px; width: 0; height: 0; opacity: 0;">
+<img src="/images/bgsota.jpg" style="position: absolute; top: -1000px; left: -1000px; width: 0; height: 0; opacity: 0;">
+<img src="/images/bgfitness.jpg" style="position: absolute; top: -1000px; left: -1000px; width: 0; height: 0; opacity: 0;">
+<img src="/images/bgutmc2.jpg" style="position: absolute; top: -1000px; left: -1000px; width: 0; height: 0; opacity: 0;">
+<img src="/images/bghr.jpg" style="position: absolute; top: -1000px; left: -1000px; width: 0; height: 0; opacity: 0;">
+<img src="/images/bggali.jpg" style="position: absolute; top: -1000px; left: -1000px; width: 0; height: 0; opacity: 0;">
+<img src="/images/bgzypmedia.jpg" style="position: absolute; top: -1000px; left: -1000px; width: 0; height: 0; opacity: 0;">
+<img src="/images/bgpotolok.jpg" style="position: absolute; top: -1000px; left: -1000px; width: 0; height: 0; opacity: 0;">
+<img src="/images/bgprokach.jpg" style="position: absolute; top: -1000px; left: -1000px; width: 0; height: 0; opacity: 0;">
+<img src="/images/bgtrafficstars.jpg" style="position: absolute; top: -1000px; left: -1000px; width: 0; height: 0; opacity: 0;">
+<img src="/images/bgrunative.jpg" style="position: absolute; top: -1000px; left: -1000px; width: 0; height: 0; opacity: 0;">
+<img src="/images/bgfundsource.jpg" style="position: absolute; top: -1000px; left: -1000px; width: 0; height: 0; opacity: 0;">
 
 </body>
 </html>
