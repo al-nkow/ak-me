@@ -15,7 +15,7 @@ export default function routing($urlRouterProvider, $locationProvider, $statePro
     $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|mailto|skype|callto):/);
 
 
-    // $locationProvider.html5Mode(true);
+    $locationProvider.html5Mode(true);
 
     /* OLD: $locationProvider.html5Mode({
      requireBase: false,
